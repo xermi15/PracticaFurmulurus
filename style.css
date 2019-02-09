@@ -1,0 +1,16 @@
+h1 {
+  padding-bottom: 5%;
+  font-family: 'ZCOOL KuaiLe', cursive !important;
+}
+
+.container {
+  margin: 1%;
+  padding: 1%;
+  text-align: center;
+}
+
+form {
+  margin: 2%;
+  padding: 1%;
+  border: 1px solid black;
+}

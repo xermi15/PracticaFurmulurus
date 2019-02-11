@@ -14,3 +14,10 @@ form {
   padding: 1%;
   border: 1px solid black;
 }
+h4.titol-panel {
+    border: solid 2px;
+    height: 100%;
+}
+.titol-panel{
+  margin-top: 20px;
+}

@@ -13,7 +13,7 @@ function crearFormulari() {
 
 function botoEliminar(idF) {
   var boto = document.createElement("button");
-  boto.setAttribute("id", "botoEliminar");
+  boto.setAttribute("id", idF);
   boto.setAttribute("type", "button");
   boto.setAttribute("class", "btn btn-danger");
   var textBoto = document.createTextNode("Eliminar");
@@ -21,13 +21,14 @@ function botoEliminar(idF) {
   boto.appendChild(textBoto);
 
   var botoE = boto;
-  //botoE.addEventListener("click", eliminarFormulari(idF));
+  botoE.addEventListener("click", eliminarFormulari);
   return boto;
 }
 
 function eliminarFormulari(idF) {
-  var form = document.getElementById(idF);
-  form.remove();
+  var form = idF.target;
+  var borrar = form.parentNode;
+  borrar.remove();
 }
 
 

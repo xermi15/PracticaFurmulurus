@@ -1,5 +1,5 @@
 h1 {
-  padding-bottom: 5%;
+  padding-bottom: 1%;
   font-family: 'ZCOOL KuaiLe', cursive !important;
 }
 
@@ -13,11 +13,18 @@ form {
   margin: 2%;
   padding: 1%;
   border: 1px solid black;
+  text-align: left;
 }
+
 h4.titol-panel {
     border: solid 2px;
-    height: 100%;
+    height: 10%;
 }
+
 .titol-panel{
   margin-top: 20px;
+}
+
+button {
+  margin: .25rem;
 }

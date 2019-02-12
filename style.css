@@ -1,11 +1,12 @@
-h1 {
-  padding-bottom: 1%;
-  font-family: 'ZCOOL KuaiLe', cursive !important;
-}
-
 .container {
   margin: 1%;
   padding: 1%;
+
+}
+
+h1 {
+  padding-bottom: 1%;
+  font-family: 'ZCOOL KuaiLe', cursive !important;
   text-align: center;
 }
 
@@ -27,4 +28,14 @@ h4.titol-panel {
 
 button {
   margin: .25rem;
+}
+
+.panelControl {
+  text-align: center;
+  border: none;
+}
+
+.collapse {
+
+  text-align: left;
 }

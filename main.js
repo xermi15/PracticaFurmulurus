@@ -14,7 +14,9 @@ function crearFormulari() {
   formulari.appendChild(titolForm);
 
   //================Pruebas==============//
-  formulari.appendChild(crearInput("Input:"));
+  formulari.appendChild(crearInputText("Input:"));
+  formulari.appendChild(crearInputData("Input:"));
+  formulari.appendChild(crearInputNumero("Input:"));
   formulari.appendChild(crearTextArea("Textarea:"));
   formulari.appendChild(crearFileInput("FileInput:"));
   formulari.appendChild(crearEmail());
@@ -41,9 +43,9 @@ function eliminarFormulari(idF) {
 /*creacio de panel de control*/
 var container = document.getElementsByTagName("div")[0];
 var caixa = document.createElement("div");
-caixa.setAttribute("id","content-panel")
+caixa.setAttribute("id","content-panel");
 var titolForm = document.createElement("h4");
-titolForm.setAttribute("class", "titol-panel")
+titolForm.setAttribute("class", "titol-panel");
 var textControl = document.createTextNode("Panel control Formulari");
 
 /*Estructura Panel de control*/
@@ -106,7 +108,7 @@ function crearBotoSubmit() {
 //#########################################################//
 
 //TO-DO: que cada vez sea un id diferente
-function crearInput(textInput) {
+function crearInputText(textInput) {
   var input = document.createElement("input");
   var inputLabel = document.createElement("label");
   var formGroup = document.createElement("div");
@@ -129,8 +131,57 @@ function crearInput(textInput) {
 }
 
 //TO-DO: que cada vez sea un id diferente
+function crearInputNumero(textInput) {
+  var input = document.createElement("input");
+  var inputLabel = document.createElement("label");
+  var formGroup = document.createElement("div");
+
+  //Creamos el campo input
+  input.setAttribute("id", "input");
+  input.setAttribute("type", "input");
+  input.setAttribute("class", "form-control");
+  input.setAttribute("pattern", "^[0-9]*$");
+  input.setAttribute("title", "^[0-9]*$");
+
+
+  //Creamos el label del campo input
+  inputLabel.setAttribute("for", "input");
+  inputLabel.appendChild(document.createTextNode(textInput));
+
+  //Lo anadimos todo al formgroup
+  formGroup.setAttribute("class", "form-group");
+  formGroup.appendChild(inputLabel);
+  formGroup.appendChild(input);
+
+  return formGroup;
+}
+
+//TO-DO: que cada vez sea un id diferente
+function crearInputData(textInput) {
+  var input = document.createElement("input");
+  var inputLabel = document.createElement("label");
+  var formGroup = document.createElement("div");
+
+  //Creamos el campo input
+  input.setAttribute("id", "input");
+  input.setAttribute("type", "date");
+  input.setAttribute("class", "form-control");
+
+  //Creamos el label del campo input
+  inputLabel.setAttribute("for", "input");
+  inputLabel.appendChild(document.createTextNode(textInput));
+
+  //Lo anadimos todo al formgroup
+  formGroup.setAttribute("class", "form-group");
+  formGroup.appendChild(inputLabel);
+  formGroup.appendChild(input);
+
+  return formGroup;
+}
+
+//TO-DO: que cada vez sea un id diferente
 //TO-DO: altura variable (rows)
-function crearTextArea(textTA) {
+function crearTextArea(textInput) {
   var ta = document.createElement("textarea");
   var taLabel = document.createElement("label");
   var formGroup = document.createElement("div");
@@ -153,7 +204,7 @@ function crearTextArea(textTA) {
 }
 
 //TO-DO: que cada vez sea un id diferente
-function crearFileInput(textFileInput) {
+function crearInputFile(textInput) {
   var fi = document.createElement("input");
   var fiLabel = document.createElement("label");
   var formGroup = document.createElement("div");
@@ -187,7 +238,7 @@ function crearEmail() {
   email.setAttribute("type", "email");
   email.setAttribute("class", "form-control");
 
-  //Creamos el label 
+  //Creamos el label
   emailLabel.setAttribute("for", "email");
   emailLabel.appendChild(document.createTextNode("Email"));
 
@@ -211,7 +262,7 @@ function crearPassword() {
   password.setAttribute("type", "password");
   password.setAttribute("class", "form-control");
 
-  //Creamos el label 
+  //Creamos el label
   passwordLabel.setAttribute("for", "password");
   passwordLabel.appendChild(document.createTextNode("Password"));
 
@@ -241,7 +292,7 @@ function crearCheck(textCheck) {
   check.setAttribute("type", "checkbox");
   check.setAttribute("class", "custom-control-input");
 
-  //Creamos el label 
+  //Creamos el label
   checkLabel.setAttribute("for", "check");
   checkLabel.setAttribute("class", "custom-control-label");
   checkLabel.appendChild(document.createTextNode(textCheck));
@@ -266,7 +317,7 @@ function crearRadio() {
   formGroup.setAttribute("class", "custom-radio");
 
   for (var i = 1; i < 4; i++) {
-    var formRadio = document.createElement('div')
+    var formRadio = document.createElement('div');
     var radio = document.createElement("input");
     var radioLabel = document.createElement("label");
 
@@ -276,7 +327,7 @@ function crearRadio() {
     radio.setAttribute("class", "custom-control-input");
     //radio.setAttribute("value", i);
 
-    //Creamos el label 
+    //Creamos el label
     radioLabel.setAttribute("for", "radio");
     radioLabel.setAttribute("class", "custom-control-label");
     radioLabel.appendChild(document.createTextNode(i));
@@ -361,7 +412,10 @@ function crearSeleccionMultiple(textSelMul) {
 
 
 
+//#########################################################//
+//---------------------Funcionamiento----------------------//
+//#########################################################//
 
-
-
-
+//Desplegamos el panel de textControl
+//Seleccionamos los campos que queremos anadir al formulario
+//Hacemos submit para crear el formulario con los campos seleccionados

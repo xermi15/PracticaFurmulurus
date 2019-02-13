@@ -15,15 +15,9 @@ function crearFormulari() {
   formulari.appendChild(titolForm);
 
   //================Pruebas==============//
-<<<<<<< HEAD
-  formulari.appendChild(crearInputText("Input:"));
-  formulari.appendChild(crearInputData("Input:"));
-  formulari.appendChild(crearInputNumero("Input:"));
-=======
   formulari.appendChild(crearInputText("Input text:"));
   formulari.appendChild(crearInputData("Input date:"));
   formulari.appendChild(crearInputNumero("Input numero:"));
->>>>>>> 69626dcbcb17b226833c1a12c8a818cbda6e00e6
   formulari.appendChild(crearTextArea("Textarea:"));
   formulari.appendChild(crearInputFile("FileInput:"));
   formulari.appendChild(crearEmail());
@@ -53,21 +47,12 @@ function editarFormularis() {
 }
 
 /*creacio de panel de control*/
-<<<<<<< HEAD
-var container = document.getElementsByTagName("div")[0];
-var caixa = document.createElement("div");
-caixa.setAttribute("id","content-panel");
-var titolForm = document.createElement("h4");
-titolForm.setAttribute("class", "titol-panel");
-var textControl = document.createTextNode("Panel control Formulari");
-=======
 // var container = document.getElementsByTagName("div")[0];
 // var caixa = document.createElement("div");
 // caixa.setAttribute("id","content-panel");
 // var titolForm = document.createElement("h4");
 // titolForm.setAttribute("class", "titol-panel");
 // var textControl = document.createTextNode("Panel control Formulari");
->>>>>>> 69626dcbcb17b226833c1a12c8a818cbda6e00e6
 
 /*Estructura Panel de control*/
 // titolForm.appendChild(textControl);
@@ -438,11 +423,6 @@ function crearSeleccionMultiple(textSelMul) {
 //---------------------Funcionamiento----------------------//
 //#########################################################//
 
-<<<<<<< HEAD
-//Desplegamos el panel de textControl
-//Seleccionamos los campos que queremos anadir al formulario
-//Hacemos submit para crear el formulario con los campos seleccionados
-=======
 //1. Desplegamos el panel de textControl
 
 //2.Seleccionamos los campos que queremos anadir al formulario
@@ -468,4 +448,3 @@ function crearSeleccionMultiple(textSelMul) {
 //     1. Hacemos click en el boton editar formulario -> esta cambia de texto a Finalizar Edicion
 //     2. Aparecen las cruces que permiten borrar un elemento (ocultas hasta entonces)
 //     3. Seguiran apareciendo hasta que pulsemos otra vez el boton finalizar edicion -> esta cambia de texto a Editar
->>>>>>> 69626dcbcb17b226833c1a12c8a818cbda6e00e6

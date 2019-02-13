@@ -1,7 +1,7 @@
 <html>
    <head>
      <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
-       
+
 
        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
        <link rel="stylesheet" href="style.css">
@@ -9,10 +9,56 @@
     <body>
       <div class="container">
         <h1>Crea el teu propi formulari!</h1>
-        <input type="text" name="inputCrear" id="inputCrear">
-        <button id="botoCrear">Crear</button>
-      </div>
+        <form class="panelControl">
+          <input class="form-control" placeholder="Nom del formulari" type="text" name="inputCrear" id="inputCrear">
+          <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#panelControl" id="botoCrear">Crear</button>
+        </form>
+        <div id="panelControl" class="collapse">
+          <h4>Panell de control</h4>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseRadio" aria-expanded="false">Radio Button</button>
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseCheckbox" aria-expanded="false">Checkbox</button>
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseInput" aria-expanded="false">Input</button>
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseDropdown" aria-expanded="false">Dropdown</button>
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseMultiple" aria-expanded="false">Multiple Selection</button>
+          </div>
+        </div>
+        <!-- Collapse Radio -->
+        <div class="collapse" id="collapseRadio">
+          <div class="card card-body">
+            Radio
+          </div>
+        </div>
 
+        <!-- Collapse Checkbox -->
+        <div class="collapse" id="collapseCheckbox">
+          <div class="card card-body">
+            Checkbox
+          </div>
+        </div>
+
+        <!-- Collapse Input -->
+        <div class="collapse" id="collapseInput">
+          <div class="card card-body">
+            Input
+          </div>
+        </div>
+
+        <!-- Collapse Dropdown -->
+        <div class="collapse" id="collapseDropdown">
+          <div class="card card-body">
+            Dropdown
+          </div>
+        </div>
+
+        <!-- Collapse Multiple Selection -->
+        <div class="collapse" id="collapseMultiple">
+          <div class="card card-body">
+            Multiple Selection
+          </div>
+        </div>
+
+      </div>
 
       <script type="text/javascript" src="main.js"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

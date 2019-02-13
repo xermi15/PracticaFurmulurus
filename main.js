@@ -7,6 +7,7 @@ function crearFormulari() {
 	var formulari = document.createElement("form");
   var titolForm = document.createElement("h4");
   var textTitol = document.createTextNode("Formulari " + inputCrear.value);
+
   formulari.setAttribute("id", inputCrear.value);
 
   /*Estructura del formulari*/
@@ -14,11 +15,17 @@ function crearFormulari() {
   formulari.appendChild(titolForm);
 
   //================Pruebas==============//
+<<<<<<< HEAD
   formulari.appendChild(crearInputText("Input:"));
   formulari.appendChild(crearInputData("Input:"));
   formulari.appendChild(crearInputNumero("Input:"));
+=======
+  formulari.appendChild(crearInputText("Input text:"));
+  formulari.appendChild(crearInputData("Input date:"));
+  formulari.appendChild(crearInputNumero("Input numero:"));
+>>>>>>> 69626dcbcb17b226833c1a12c8a818cbda6e00e6
   formulari.appendChild(crearTextArea("Textarea:"));
-  formulari.appendChild(crearFileInput("FileInput:"));
+  formulari.appendChild(crearInputFile("FileInput:"));
   formulari.appendChild(crearEmail());
   formulari.appendChild(crearPassword());
   formulari.appendChild(crearCheck("Check"));
@@ -32,6 +39,7 @@ function crearFormulari() {
   formulari.appendChild(botoEliminar(formulari.id));
   container.appendChild(formulari);
 
+  document.getElementById("botoEditar").style.visibility="visible";
 }
 
 function eliminarFormulari(idF) {
@@ -40,23 +48,37 @@ function eliminarFormulari(idF) {
   borrar.remove();
 }
 
+function editarFormularis() {
+  //Busca tots els elements editables i els marca com a visibles
+}
+
 /*creacio de panel de control*/
+<<<<<<< HEAD
 var container = document.getElementsByTagName("div")[0];
 var caixa = document.createElement("div");
 caixa.setAttribute("id","content-panel");
 var titolForm = document.createElement("h4");
 titolForm.setAttribute("class", "titol-panel");
 var textControl = document.createTextNode("Panel control Formulari");
+=======
+// var container = document.getElementsByTagName("div")[0];
+// var caixa = document.createElement("div");
+// caixa.setAttribute("id","content-panel");
+// var titolForm = document.createElement("h4");
+// titolForm.setAttribute("class", "titol-panel");
+// var textControl = document.createTextNode("Panel control Formulari");
+>>>>>>> 69626dcbcb17b226833c1a12c8a818cbda6e00e6
 
 /*Estructura Panel de control*/
-titolForm.appendChild(textControl);
-caixa.appendChild(titolForm);
-container.appendChild(caixa);
+// titolForm.appendChild(textControl);
+// caixa.appendChild(titolForm);
+// container.appendChild(caixa);
 
 //Boton e input crear formulario
 botoCrear = document.getElementById('botoCrear');
 inputCrear = document.getElementById('inputCrear');
 botoCrear.addEventListener('click', crearFormulari);
+
 
 
 
@@ -193,7 +215,7 @@ function crearTextArea(textInput) {
 
   //Creamos el label del campo input
   taLabel.setAttribute("for", "textarea");
-  taLabel.appendChild(document.createTextNode(textTA));
+  taLabel.appendChild(document.createTextNode(textInput));
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
@@ -216,7 +238,7 @@ function crearInputFile(textInput) {
 
   //Creamos el label del campo input
   fiLabel.setAttribute("for", "fileInput");
-  fiLabel.appendChild(document.createTextNode(textFileInput));
+  fiLabel.appendChild(document.createTextNode(textInput));
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
@@ -416,6 +438,34 @@ function crearSeleccionMultiple(textSelMul) {
 //---------------------Funcionamiento----------------------//
 //#########################################################//
 
+<<<<<<< HEAD
 //Desplegamos el panel de textControl
 //Seleccionamos los campos que queremos anadir al formulario
 //Hacemos submit para crear el formulario con los campos seleccionados
+=======
+//1. Desplegamos el panel de textControl
+
+//2.Seleccionamos los campos que queremos anadir al formulario
+//    1. Seleccionamos Input
+//        a. Se nos abre un desplegable con los tipos disponibles
+//        b. Seleccionamos el que queramos
+//            I. En el caso de numeros nos pide si queremos anadir un rango
+//            II. En el caso de string, la longitud
+//        c. En el caso de tener rango o longitud true, salta un popup o alert para rellenarlo
+//        d. Una vez rellenado, o en caso de no tener, nos pide rellenar el nombre del input mediante popup o alert
+//        e. Al aceptar, el campo se añade al formulario <- y esto como coño lo hacemos
+//    2. Seleccionamos Radio/Checkbox/Multiple/Dropdown
+//        a. Se nos abre un desplegable con los tipos disponibles (radio, checkbox, multiple, dropdown)
+//        b. Seleccionamos el que queramos
+//        c. Nos pide el numero de opciones de las que queremos disponer con popup o alert
+//        c. Para cada opcion, nos pide el nombre (valor tambien?)
+//        d. Una vez rellenado, nos pide rellenar el nombre del input mediante popup o alert
+//        e. Al aceptar, el campo se añade al formulario <- y esto como coño lo hacemos
+
+//3. Hacemos submit para crear el formulario con los campos seleccionados
+
+//4. Borrar elementos de un formulario / editar formularios
+//     1. Hacemos click en el boton editar formulario -> esta cambia de texto a Finalizar Edicion
+//     2. Aparecen las cruces que permiten borrar un elemento (ocultas hasta entonces)
+//     3. Seguiran apareciendo hasta que pulsemos otra vez el boton finalizar edicion -> esta cambia de texto a Editar
+>>>>>>> 69626dcbcb17b226833c1a12c8a818cbda6e00e6

@@ -11,8 +11,8 @@ function crearFormulari() {
   formulari.setAttribute("id", inputCrear.value);
 
   /*Estructura del formulari*/
-  titolForm.appendChild(textTitol);
-  formulari.appendChild(titolForm);
+  // titolForm.appendChild(textTitol);
+  // formulari.appendChild(titolForm);
 
   //================Pruebas==============//
   formulari.appendChild(crearInputText("Input text:"));
@@ -33,7 +33,7 @@ function crearFormulari() {
   formulari.appendChild(botoEliminar(formulari.id));
   container.appendChild(formulari);
 
-  document.getElementById("botoEditar").style.visibility="visible";
+  document.getElementById("botoEditar").style.visibility = "visible";
 }
 
 function eliminarFormulari(idF) {
@@ -108,6 +108,21 @@ function crearBotoSubmit() {
   return boto;
 }
 
+function eliminarCamp() {
+  var creu = document.createElement("button");
+  var textCreu = document.createTextNode("&times;");
+
+  //boto.setAttribute("id", idF);
+  boto.setAttribute("type", "button");
+  boto.setAttribute("class", "close");
+  boto.setAttribute("aria-label", "Close");
+  boto.appendChild(textCreu);
+
+  var creuE = creu;
+  creuE.addEventListener("click", eliminarFormulari);
+
+  return boto;
+}
 
 
 //#########################################################//

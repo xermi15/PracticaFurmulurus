@@ -11,22 +11,22 @@ function crearFormulari() {
   formulari.setAttribute("id", inputCrear.value);
 
   /*Estructura del formulari*/
-  // titolForm.appendChild(textTitol);
-  // formulari.appendChild(titolForm);
+  titolForm.appendChild(textTitol);
+  formulari.appendChild(titolForm);
 
   //================Pruebas==============//
-  formulari.appendChild(crearInputText("Input text:"));
-  formulari.appendChild(crearInputData("Input date:"));
-  formulari.appendChild(crearInputNumero("Input numero:"));
-  formulari.appendChild(crearTextArea("Textarea:"));
-  formulari.appendChild(crearInputFile("FileInput:"));
-  formulari.appendChild(crearEmail());
-  formulari.appendChild(crearPassword());
-  formulari.appendChild(crearCheck("Check"));
-  formulari.appendChild(crearRadio());
-  formulari.appendChild(crearDropdown("Drop"));
-  formulari.appendChild(crearSeleccionMultiple("SelMul"));
-  formulari.appendChild(crearBoto("boto1"));
+  // formulari.appendChild(crearInputText("Input text:"));
+  // formulari.appendChild(crearInputData("Input date:"));
+  // formulari.appendChild(crearInputNumero("Input numero:"));
+  // formulari.appendChild(crearTextArea("Textarea:"));
+  // formulari.appendChild(crearInputFile("FileInput:"));
+  // formulari.appendChild(crearEmail());
+  // formulari.appendChild(crearPassword());
+  // formulari.appendChild(crearCheck("Check"));
+  // formulari.appendChild(crearRadio());
+  // formulari.appendChild(crearDropdown("Drop"));
+  // formulari.appendChild(crearSeleccionMultiple("SelMul"));
+  // formulari.appendChild(crearBoto("boto1"));
   formulari.appendChild(crearBotoSubmit());
   //==================FIN================//
 
@@ -34,6 +34,8 @@ function crearFormulari() {
   container.appendChild(formulari);
 
   document.getElementById("botoEditar").style.visibility = "visible";
+  
+
 }
 
 function eliminarFormulari(idF) {
@@ -45,6 +47,8 @@ function eliminarFormulari(idF) {
 function editarFormularis() {
   //Busca tots els elements editables i els marca com a visibles
 }
+
+
 
 /*creacio de panel de control*/
 // var container = document.getElementsByTagName("div")[0];
@@ -64,8 +68,39 @@ botoCrear = document.getElementById('botoCrear');
 inputCrear = document.getElementById('inputCrear');
 botoCrear.addEventListener('click', crearFormulari);
 
+//Collapse
+collapseRadio = document.getElementById('collapseRadio');
+collapseCheckbox = document.getElementById('collapseCheckbox');
+collapseDropdown = document.getElementById('collapseDropdown');
+collapseMultiple = document.getElementById('collapseMultiple');
+collapseRadio.addEventListener('click', obrirModalLabel);
+collapseCheckbox.addEventListener('click', obrirModalLabel);
+collapseDropdown.addEventListener('click', obrirModalLabel);
+collapseMultiple.addEventListener('click', obrirModalLabel);
 
 
+guardarLabel = document.getElementById('guardarLabel');
+guardarLabel.addEventListener('click', guardarModalLabel);
+
+
+
+//#########################################################//
+//-------------------------Modales-------------------------//
+//#########################################################//
+
+//Obre el modal que et demana el label del camp
+function obrirModalLabel() {
+  $('#labelModal').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModalLabel() {
+  labelLabelModal = document.getElementById('labelLabelModal').value;
+  console.log(labelLabelModal);
+  $('#labelModal').modal('hide');
+}
+
+//TO-DO: els que necessiten rang i opcions han d'apareixer abans del titol
 
 //#########################################################//
 //-------------------------Botones-------------------------//

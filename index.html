@@ -11,74 +11,102 @@
         <h1>Crea el teu propi formulari!</h1>
         <form class="panelControl">
           <input class="form-control" placeholder="Nom del formulari" type="text" name="inputCrear" id="inputCrear">
-          <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#panelControl" id="botoCrear">Crear</button>
-          <button type="button" style="visibility: hidden;" class="btn btn-secondary" id="botoEditar">Editar</button>
+          <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#panelControl" id="botoCrear">Crea</button>
+          <button type="button" style="visibility: hidden;" class="btn btn-secondary" id="botoEditar">Edita</button>
         </form>
-        <div id="panelControl" class="collapse">
+        <div id="panelControl" class="collapse card card-body">
           <h4>Panell de control</h4>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseRadio" aria-expanded="false">Radio Button</button>
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseCheckbox" aria-expanded="false">Checkbox</button>
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseInput" aria-expanded="false">Input</button>
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseDropdown" aria-expanded="false">Dropdown</button>
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseMultiple" aria-expanded="false">Multiple Selection</button>
+          <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-radio-tab" data-toggle="tab" href="#nav-radio" role="tab" aria-controls="nav-radio" aria-selected="true">Radio</a>
+            <a class="nav-item nav-link" id="nav-checkbox-tab" data-toggle="tab" href="#nav-checkbox" role="tab" aria-controls="nav-checkbox" aria-selected="false">Checkbox</a>
+            <a class="nav-item nav-link" id="nav-input-tab" data-toggle="tab" href="#nav-input" role="tab" aria-controls="nav-input" aria-selected="false">Input</a>
+            <a class="nav-item nav-link" id="nav-dropdown-tab" data-toggle="tab" href="#nav-dropdown" role="tab" aria-controls="nav-dropdown" aria-selected="false">Dropdown</a>
+            <a class="nav-item nav-link" id="nav-multiple-tab" data-toggle="tab" href="#nav-multiple" role="tab" aria-controls="nav-multiple" aria-selected="false">Multiple</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-radio" role="tabpanel" aria-labelledby="nav-radio-tab">
+            <!-- Radio -->
+            <div class="card card-body" id="collapseRadio">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="menuRadio" disabled>
+                <label class="form-check-label">Radio</label>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-checkbox" role="tabpanel" aria-labelledby="nav-checkbox-tab">
+            <!-- Checkbox -->
+            <div class="card card-body" id="collapseCheckbox">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="menuCheckbox" disabled>
+                <label class="form-check-label">Checkbox</label>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-input" role="tabpanel" aria-labelledby="nav-input-tab">
+            <!-- Input -->
+            <div class="card card-body" id="collapseInput">
+              Input
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-dropdown" role="tabpanel" aria-labelledby="nav-dropdown-tab">
+            <!-- Dropdown -->
+            <div class="card card-body" id="collapseDropdown">
+              <div class="form-group">
+                <label for="menuDropdown">Dropdown</label>
+                <select class="form-control" id="menuDropdown" disabled>
+                  <option>Opció 1</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-multiple" role="tabpanel" aria-labelledby="nav-multiple-tab">
+            <!-- Multiple Selection -->
+            <div class="card card-body" id="collapseMultiple">
+              <div class="form-group">
+                <label for="menuMultiple">Multiple</label>
+                <select multiple class="form-control" id="menuMultiple" disabled>
+                  <option>Opció 1</option>
+                  <option>Opció 2</option>
+                  <option>Opció 3</option>
+                  <option>Opció 4</option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
+        </div>
 
-        <!-- Collapse Radio -->
-        <div class="collapse" id="collapseRadio">
-          <div class="card card-body">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" id="menuRadio" disabled>
-              <label class="form-check-label">Radio</label>
+        
+        
+
+        <!-- Modal Radio -->
+        <div class="modal fade" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="labelModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="labelModalLabel">Label</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="labelLabelModal">Introdueix el label del camp:</label>
+                  <input type="text" class="form-control" id="labelLabelModal" placeholder="Option">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
+                <button type="button" class="btn btn-primary" id="guardarLabel">Guarda</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Collapse Checkbox -->
-        <div class="collapse" id="collapseCheckbox">
-          <div class="card card-body">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="menuCheckbox" disabled>
-              <label class="form-check-label">Checkbox</label>
-            </div>
-          </div>
-        </div>
 
-        <!-- Collapse Input -->
-        <div class="collapse" id="collapseInput">
-          <div class="card card-body">
-            Input
-          </div>
-        </div>
-
-        <!-- Collapse Dropdown -->
-        <div class="collapse" id="collapseDropdown">
-          <div class="card card-body">
-            <div class="form-group">
-              <label for="menuDropdown">Dropdown</label>
-              <select class="form-control" id="menuDropdown" disabled>
-                <option>Opció 1</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Collapse Multiple Selection -->
-        <div class="collapse" id="collapseMultiple">
-          <div class="card card-body">
-            <div class="form-group">
-              <label for="menuMultiple">Multiple</label>
-              <select multiple class="form-control" id="menuMultiple" disabled>
-                <option>Opció 1</option>
-                <option>Opció 2</option>
-                <option>Opció 3</option>
-                <option>Opció 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
+      <!-- end container -->
       </div>
 
       <script type="text/javascript" src="main.js"></script>

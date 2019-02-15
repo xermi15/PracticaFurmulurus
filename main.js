@@ -66,7 +66,7 @@ function editarFormularis() {
 //Boton e input crear formulario
 botoCrear = document.getElementById('botoCrear');
 inputCrear = document.getElementById('inputCrear');
-botoCrear.addEventListener('click', crearFormulari);
+//botoCrear.addEventListener('click', crearFormulari);
 
 //Opcions de la navbar
 collapseRadio = document.getElementById('collapseRadio');
@@ -100,6 +100,7 @@ function guardarModal1() {
   modal1InputLabel = document.getElementById('modal1InputLabel').value;
   console.log(modal1InputLabel);
   $('#modal1').modal('hide');
+  crearFormulari();
 }
 
 //Obre el modal que et demana el label del camp
@@ -114,6 +115,7 @@ function guardarModal2() {
   console.log(modal2InputLabel);
   console.log(opcionsTextAreaModal2);
   $('#modal2').modal('hide');
+  crearFormulari();
 }
 
 //TO-DO: els que necessiten rang i opcions han d'apareixer abans del titol

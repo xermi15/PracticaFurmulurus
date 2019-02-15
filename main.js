@@ -113,7 +113,13 @@ function crearBotoSubmit() {
 //#########################################################//
 //-------------------------Inputs-------------------------//
 //#########################################################//
+function funcionprueba(){
+  alert("crea input email.")
+}
 
+var inEmail = document.getElementById("inputEmail");
+
+inEmail.addEventListener("click", funcionprueba);
 //TO-DO: que cada vez sea un id diferente
 function crearInputText(textInput) {
   var input = document.createElement("input");

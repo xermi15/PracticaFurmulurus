@@ -38,3 +38,7 @@ button {
 .collapse {
   text-align: left;
 }
+
+.card-body:hover {
+    background: #28a74596;
+}

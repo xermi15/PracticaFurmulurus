@@ -186,13 +186,21 @@ function eliminarCamp() {
 //#########################################################//
 //-------------------------Inputs-------------------------//
 //#########################################################//
-function funcionprueba(){
-  alert("crea input email.")
-}
 
-var inEmail = document.getElementById("inputEmail");
 
-inEmail.addEventListener("click", funcionprueba);
+var inEmail = document.getElementById("collapseEmail");
+var inPass = document.getElementById("collapsePass");
+var inText = document.getElementById("collapseText");
+var inNum = document.getElementById("collapseNum");
+var inFile = document.getElementById("collapseFile");
+var inTextA = document.getElementById("collapseTextA");
+
+inEmail.addEventListener("click", obrirModal1);
+inPass.addEventListener("click", obrirModal1);
+inText.addEventListener("click", obrirModal1);
+inNum.addEventListener("click", obrirModal1);
+inFile.addEventListener("click", obrirModal1);
+inTextA.addEventListener("click", obrirModal1);
 //TO-DO: que cada vez sea un id diferente
 function crearInputText(textInput) {
   var input = document.createElement("input");

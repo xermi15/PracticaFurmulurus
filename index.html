@@ -47,7 +47,10 @@
           <div class="tab-pane fade" id="nav-input" role="tabpanel" aria-labelledby="nav-input-tab">
             <!-- Input -->
             <div class="card card-body" id="collapseInput">
-              Input
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" readonly>
+              </div>
             </div>
           </div>
           <div class="tab-pane fade" id="nav-dropdown" role="tabpanel" aria-labelledby="nav-dropdown-tab">
@@ -55,7 +58,7 @@
             <div class="card card-body" id="collapseDropdown">
               <div class="form-group">
                 <label for="menuDropdown">Dropdown</label>
-                <select class="form-control" id="menuDropdown" disabled>
+                <select class="form-control" id="menuDropdown" readonly>
                   <option>Opció 1</option>
                 </select>
               </div>
@@ -81,25 +84,53 @@
         
         
 
-        <!-- Modal Radio -->
-        <div class="modal fade" id="labelModal" tabindex="-1" role="dialog" aria-labelledby="labelModalLabel" aria-hidden="true">
+        <!-- Modal Label -->
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="labelModalLabel">Label</h5>
+                <h5 class="modal-title" id="modal1Label">Label</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <div class="form-group">
-                  <label for="labelLabelModal">Introdueix el label del camp:</label>
-                  <input type="text" class="form-control" id="labelLabelModal" placeholder="Option">
+                  <label for="modal1InputLabel">Introdueix el label del camp:</label>
+                  <input type="text" class="form-control" id="modal1InputLabel" placeholder="Label">
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
-                <button type="button" class="btn btn-primary" id="guardarLabel">Guarda</button>
+                <button type="button" class="btn btn-primary" id="guardarModal1">Guarda</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Label -->
+        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal2Label">Label</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="modal2InputLabel">Introdueix el label del camp:</label>
+                  <input type="text" class="form-control" id="modal2InputLabel" placeholder="Label">
+                </div>
+                <div class="form-group">
+                  <label for="opcionsTextAreaModal2">Opcions</label>
+                  <textarea class="form-control" id="opcionsTextAreaModal2" rows="3" placeholder="Opcio 1"></textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
+                <button type="button" class="btn btn-primary" id="guardarModal2">Guarda</button>
               </div>
             </div>
           </div>

@@ -68,19 +68,21 @@ botoCrear = document.getElementById('botoCrear');
 inputCrear = document.getElementById('inputCrear');
 botoCrear.addEventListener('click', crearFormulari);
 
-//Collapse
+//Opcions de la navbar
 collapseRadio = document.getElementById('collapseRadio');
 collapseCheckbox = document.getElementById('collapseCheckbox');
 collapseDropdown = document.getElementById('collapseDropdown');
 collapseMultiple = document.getElementById('collapseMultiple');
-collapseRadio.addEventListener('click', obrirModalLabel);
-collapseCheckbox.addEventListener('click', obrirModalLabel);
-collapseDropdown.addEventListener('click', obrirModalLabel);
-collapseMultiple.addEventListener('click', obrirModalLabel);
+collapseRadio.addEventListener('click', obrirModal2);
+collapseCheckbox.addEventListener('click', obrirModal2);
+collapseDropdown.addEventListener('click', obrirModal2);
+collapseMultiple.addEventListener('click', obrirModal2);
 
-
-guardarLabel = document.getElementById('guardarLabel');
-guardarLabel.addEventListener('click', guardarModalLabel);
+//Guardar
+guardarM1 = document.getElementById('guardarModal1');
+guardarM2 = document.getElementById('guardarModal2');
+guardarM1.addEventListener('click', guardarModal1);
+guardarM2.addEventListener('click', guardarModal2);
 
 
 
@@ -89,15 +91,29 @@ guardarLabel.addEventListener('click', guardarModalLabel);
 //#########################################################//
 
 //Obre el modal que et demana el label del camp
-function obrirModalLabel() {
-  $('#labelModal').modal('show');
+function obrirModal1() {
+  $('#modal1').modal('show');
 }
 
 //Guarda el contingut del camp label i tanca el modal
-function guardarModalLabel() {
-  labelLabelModal = document.getElementById('labelLabelModal').value;
-  console.log(labelLabelModal);
-  $('#labelModal').modal('hide');
+function guardarModal1() {
+  modal1InputLabel = document.getElementById('modal1InputLabel').value;
+  console.log(modal1InputLabel);
+  $('#modal1').modal('hide');
+}
+
+//Obre el modal que et demana el label del camp
+function obrirModal2() {
+  $('#modal2').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModal2() {
+  modal2InputLabel = document.getElementById('modal2InputLabel').value;
+  opcionsTextAreaModal2 = $('#opcionsTextAreaModal2').val().split(/\n/);
+  console.log(modal2InputLabel);
+  console.log(opcionsTextAreaModal2);
+  $('#modal2').modal('hide');
 }
 
 //TO-DO: els que necessiten rang i opcions han d'apareixer abans del titol

@@ -15,25 +15,27 @@ function crearFormulari() {
   formulari.appendChild(titolForm);
 
   //================Pruebas==============//
-  formulari.appendChild(crearInputText("Input text:"));
-  formulari.appendChild(crearInputData("Input date:"));
-  formulari.appendChild(crearInputNumero("Input numero:"));
-  formulari.appendChild(crearTextArea("Textarea:"));
-  formulari.appendChild(crearInputFile("FileInput:"));
-  formulari.appendChild(crearEmail());
-  formulari.appendChild(crearPassword());
-  formulari.appendChild(crearCheck("Check"));
-  formulari.appendChild(crearRadio());
-  formulari.appendChild(crearDropdown("Drop"));
-  formulari.appendChild(crearSeleccionMultiple("SelMul"));
-  formulari.appendChild(crearBoto("boto1"));
+  // formulari.appendChild(crearInputText("Input text:"));
+  // formulari.appendChild(crearInputData("Input date:"));
+  // formulari.appendChild(crearInputNumero("Input numero:"));
+  // formulari.appendChild(crearTextArea("Textarea:"));
+  // formulari.appendChild(crearInputFile("FileInput:"));
+  // formulari.appendChild(crearEmail());
+  // formulari.appendChild(crearPassword());
+  // formulari.appendChild(crearCheck("Check"));
+  // formulari.appendChild(crearRadio());
+  // formulari.appendChild(crearDropdown("Drop"));
+  // formulari.appendChild(crearSeleccionMultiple("SelMul"));
+  // formulari.appendChild(crearBoto("boto1"));
   formulari.appendChild(crearBotoSubmit());
   //==================FIN================//
 
   formulari.appendChild(botoEliminar(formulari.id));
   container.appendChild(formulari);
 
-  document.getElementById("botoEditar").style.visibility="visible";
+  document.getElementById("botoEditar").style.visibility = "visible";
+  
+
 }
 
 function eliminarFormulari(idF) {
@@ -45,6 +47,8 @@ function eliminarFormulari(idF) {
 function editarFormularis() {
   //Busca tots els elements editables i els marca com a visibles
 }
+
+
 
 /*creacio de panel de control*/
 // var container = document.getElementsByTagName("div")[0];
@@ -62,10 +66,59 @@ function editarFormularis() {
 //Boton e input crear formulario
 botoCrear = document.getElementById('botoCrear');
 inputCrear = document.getElementById('inputCrear');
-botoCrear.addEventListener('click', crearFormulari);
+//botoCrear.addEventListener('click', crearFormulari);
+
+//Opcions de la navbar
+collapseRadio = document.getElementById('collapseRadio');
+collapseCheckbox = document.getElementById('collapseCheckbox');
+collapseDropdown = document.getElementById('collapseDropdown');
+collapseMultiple = document.getElementById('collapseMultiple');
+collapseRadio.addEventListener('click', obrirModal2);
+collapseCheckbox.addEventListener('click', obrirModal2);
+collapseDropdown.addEventListener('click', obrirModal2);
+collapseMultiple.addEventListener('click', obrirModal2);
+
+//Guardar
+guardarM1 = document.getElementById('guardarModal1');
+guardarM2 = document.getElementById('guardarModal2');
+guardarM1.addEventListener('click', guardarModal1);
+guardarM2.addEventListener('click', guardarModal2);
 
 
 
+//#########################################################//
+//-------------------------Modales-------------------------//
+//#########################################################//
+
+//Obre el modal que et demana el label del camp
+function obrirModal1() {
+  $('#modal1').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModal1() {
+  modal1InputLabel = document.getElementById('modal1InputLabel').value;
+  console.log(modal1InputLabel);
+  $('#modal1').modal('hide');
+  crearFormulari();
+}
+
+//Obre el modal que et demana el label del camp
+function obrirModal2() {
+  $('#modal2').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModal2() {
+  modal2InputLabel = document.getElementById('modal2InputLabel').value;
+  opcionsTextAreaModal2 = $('#opcionsTextAreaModal2').val().split(/\n/);
+  console.log(modal2InputLabel);
+  console.log(opcionsTextAreaModal2);
+  $('#modal2').modal('hide');
+  crearFormulari();
+}
+
+//TO-DO: els que necessiten rang i opcions han d'apareixer abans del titol
 
 //#########################################################//
 //-------------------------Botones-------------------------//
@@ -108,6 +161,21 @@ function crearBotoSubmit() {
   return boto;
 }
 
+function eliminarCamp() {
+  var creu = document.createElement("button");
+  var textCreu = document.createTextNode("&times;");
+
+  //boto.setAttribute("id", idF);
+  boto.setAttribute("type", "button");
+  boto.setAttribute("class", "close");
+  boto.setAttribute("aria-label", "Close");
+  boto.appendChild(textCreu);
+
+  var creuE = creu;
+  creuE.addEventListener("click", eliminarFormulari);
+
+  return boto;
+}
 
 
 //#########################################################//

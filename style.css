@@ -42,3 +42,7 @@ button {
 .afegirCampLink:hover {
     background: #28a74596;
 }
+
+.close-icon {
+  cursor: pointer;
+}

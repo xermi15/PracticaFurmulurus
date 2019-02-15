@@ -15,7 +15,7 @@ function crearFormulari() {
   formulari.appendChild(titolForm);
 
   //================Pruebas==============//
-  // formulari.appendChild(crearInputText("Input text:"));
+  formulari.appendChild(crearInputText("Input text:"));
   // formulari.appendChild(crearInputData("Input date:"));
   // formulari.appendChild(crearInputNumero("Input numero:"));
   // formulari.appendChild(crearTextArea("Textarea:"));
@@ -34,7 +34,7 @@ function crearFormulari() {
   container.appendChild(formulari);
 
   document.getElementById("botoEditar").style.visibility = "visible";
-  
+
 
 }
 
@@ -83,6 +83,11 @@ guardarM1 = document.getElementById('guardarModal1');
 guardarM2 = document.getElementById('guardarModal2');
 guardarM1.addEventListener('click', guardarModal1);
 guardarM2.addEventListener('click', guardarModal2);
+
+//Aixo borra camps del formulari, ojo
+document.getElementsByClassName('close-icon').addEventListener('click',function() {
+  $(this).closest('.form-group').fadeOut();
+});
 
 
 
@@ -162,19 +167,19 @@ function crearBotoSubmit() {
 }
 
 function eliminarCamp() {
-  var creu = document.createElement("button");
-  var textCreu = document.createTextNode("&times;");
+  var creu = document.createElement("span");
+  var icon = document.createElement("i");
 
-  //boto.setAttribute("id", idF);
-  boto.setAttribute("type", "button");
-  boto.setAttribute("class", "close");
-  boto.setAttribute("aria-label", "Close");
-  boto.appendChild(textCreu);
+  icon.setAttribute("class", "fas fa-times");
+  creu.setAttribute("class", "pull-right clickable close-icon");
+  creu.setAttribute("data-effect", "fadeOut");
+
+  creu.appendChild(icon);
 
   var creuE = creu;
   creuE.addEventListener("click", eliminarFormulari);
 
-  return boto;
+  return creu;
 }
 
 
@@ -207,6 +212,7 @@ function crearInputText(textInput) {
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
   formGroup.appendChild(input);
+  formGroup.appendChild(eliminarCamp());
 
   return formGroup;
 }

@@ -1,11 +1,10 @@
 <html>
-   <head>
-     <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
-
-
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-       <link rel="stylesheet" href="style.css">
-   </head>
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+    </head>
     <body>
       <div class="container">
         <h1>Crea el teu propi formulari!</h1>
@@ -14,102 +13,110 @@
           <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#panelControl" id="botoCrear">Crea</button>
           <button type="button" style="visibility: hidden;" class="btn btn-secondary" id="botoEditar">Edita</button>
         </form>
+
         <div id="panelControl" class="collapse card card-body">
-          <h4>Panell de control</h4>
-          <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-radio-tab" data-toggle="tab" href="#nav-radio" role="tab" aria-controls="nav-radio" aria-selected="true">Radio</a>
-            <a class="nav-item nav-link" id="nav-checkbox-tab" data-toggle="tab" href="#nav-checkbox" role="tab" aria-controls="nav-checkbox" aria-selected="false">Checkbox</a>
-            <a class="nav-item nav-link" id="nav-input-tab" data-toggle="tab" href="#nav-input" role="tab" aria-controls="nav-input" aria-selected="false">Input</a>
-            <a class="nav-item nav-link" id="nav-dropdown-tab" data-toggle="tab" href="#nav-dropdown" role="tab" aria-controls="nav-dropdown" aria-selected="false">Dropdown</a>
-            <a class="nav-item nav-link" id="nav-multiple-tab" data-toggle="tab" href="#nav-multiple" role="tab" aria-controls="nav-multiple" aria-selected="false">Multiple</a>
-          </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-radio" role="tabpanel" aria-labelledby="nav-radio-tab">
-            <!-- Radio -->
-            <div class="card card-body afegirCampLink" id="collapseRadio">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" id="menuRadio" disabled>
-                <label class="form-check-label">Radio</label>
+          <button class="btn btn-link titolPanelControl" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="true" aria-controls="navbarCollapse">
+            <h4>Panell de control</h4>
+          </button>
+
+          <div class="collapse" id="navbarCollapse">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-radio-tab" data-toggle="tab" href="#nav-radio" role="tab" aria-controls="nav-radio" aria-selected="true">Radio</a>
+                <a class="nav-item nav-link" id="nav-checkbox-tab" data-toggle="tab" href="#nav-checkbox" role="tab" aria-controls="nav-checkbox" aria-selected="false">Checkbox</a>
+                <a class="nav-item nav-link" id="nav-input-tab" data-toggle="tab" href="#nav-input" role="tab" aria-controls="nav-input" aria-selected="false">Input</a>
+                <a class="nav-item nav-link" id="nav-dropdown-tab" data-toggle="tab" href="#nav-dropdown" role="tab" aria-controls="nav-dropdown" aria-selected="false">Dropdown</a>
+                <a class="nav-item nav-link" id="nav-multiple-tab" data-toggle="tab" href="#nav-multiple" role="tab" aria-controls="nav-multiple" aria-selected="false">Multiple</a>
               </div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-radio" role="tabpanel" aria-labelledby="nav-radio-tab">
+                <!-- Radio -->
+                <div class="card card-body afegirCampLink" id="collapseRadio">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="menuRadio" disabled>
+                    <label class="form-check-label">Radio</label>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-checkbox" role="tabpanel" aria-labelledby="nav-checkbox-tab">
+                <!-- Checkbox -->
+                <div class="card card-body afegirCampLink" id="collapseCheckbox">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="menuCheckbox" disabled>
+                    <label class="form-check-label">Checkbox</label>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-input" role="tabpanel" aria-labelledby="nav-input-tab">
+                <!-- Input -->
+                <div class="card card-body afegirCampLink" id="collapseEmail">
+                  <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" disabled>
+                  </div>
+                </div>
+                <div class="card card-body afegirCampLink" id="collapsePass">
+                  <div class="form-group">
+                    <label for="inputPass">Contrasenya</label>
+                    <input type="password" class="form-control" id="inputPass" placeholder="**********" readonly>
+                  </div>
+                </div>
+                <div class="card card-body afegirCampLink" id="collapseText">
+                  <div class="form-group">
+                    <label for="inputText">Text</label>
+                    <input type="text" class="form-control" id="inputText" placeholder="Introdueix un text" readonly>
+                  </div>
+                </div>
+                <div class="card card-body afegirCampLink" id="collapseNum">
+                  <div class="form-group">
+                    <label for="inputNum">Numeric</label>
+                    <input type="num" class="form-control" id="inputNum" placeholder="Introdueix numeros" readonly>
+                  </div>
+                </div>
+                <div class="card card-body afegirCampLink" id="collapseFile">
+                  <div class="form-group">
+                    <label for="inputFile">Arxiu</label>
+                    <input type="file" class="form-control" id="inputFile" placeholder="Carrega un arxiu" disabled>
+                  </div>
+                </div>
+                <div class="card card-body afegirCampLink" id="collapseTextA">
+                  <div class="form-group">
+                    <label for="inputTextA">TextArea</label>
+                    <input type="textarea" class="form-control" id="inputTextA" placeholder="Introdueix un area de text" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-dropdown" role="tabpanel" aria-labelledby="nav-dropdown-tab">
+                <!-- Dropdown -->
+                <div class="card card-body afegirCampLink" id="collapseDropdown">
+                  <div class="form-group">
+                    <label for="menuDropdown">Dropdown</label>
+                    <select class="form-control" id="menuDropdown" readonly>
+                      <option>Opció 1</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-multiple" role="tabpanel" aria-labelledby="nav-multiple-tab">
+                <!-- Multiple Selection -->
+                <div class="card card-body afegirCampLink" id="collapseMultiple">
+                  <div class="form-group">
+                    <label for="menuMultiple">Multiple</label>
+                    <select multiple class="form-control" id="menuMultiple" disabled>
+                      <option>Opció 1</option>
+                      <option>Opció 2</option>
+                      <option>Opció 3</option>
+                      <option>Opció 4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="nav-checkbox" role="tabpanel" aria-labelledby="nav-checkbox-tab">
-            <!-- Checkbox -->
-            <div class="card card-body afegirCampLink" id="collapseCheckbox">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="menuCheckbox" disabled>
-                <label class="form-check-label">Checkbox</label>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="nav-input" role="tabpanel" aria-labelledby="nav-input-tab">
-            <!-- Input -->
-            <div class="card card-body afegirCampLink" id="collapseEmail">
-              <div class="form-group">
-                <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" disabled>
-              </div>
-            </div>
-            <div class="card card-body afegirCampLink" id="collapsePass">
-              <div class="form-group">
-                <label for="inputPass">Contrasenya</label>
-                <input type="password" class="form-control" id="inputPass" placeholder="**********" readonly>
-              </div>
-            </div>
-            <div class="card card-body afegirCampLink" id="collapseText">
-              <div class="form-group">
-                <label for="inputText">Text</label>
-                <input type="text" class="form-control" id="inputText" placeholder="Introdueix un text" readonly>
-              </div>
-            </div>
-            <div class="card card-body afegirCampLink" id="collapseNum">
-              <div class="form-group">
-                <label for="inputNum">Numeric</label>
-                <input type="num" class="form-control" id="inputNum" placeholder="Introdueix numeros" readonly>
-              </div>
-            </div>
-            <div class="card card-body afegirCampLink" id="collapseFile">
-              <div class="form-group">
-                <label for="inputFile">Arxiu</label>
-                <input type="file" class="form-control" id="inputFile" placeholder="Carrega un arxiu" disabled>
-              </div>
-            </div>
-            <div class="card card-body afegirCampLink" id="collapseTextA">
-              <div class="form-group">
-                <label for="inputTextA">TextArea</label>
-                <input type="textarea" class="form-control" id="inputTextA" placeholder="Introdueix un area de text" readonly>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="nav-dropdown" role="tabpanel" aria-labelledby="nav-dropdown-tab">
-            <!-- Dropdown -->
-            <div class="card card-body afegirCampLink" id="collapseDropdown">
-              <div class="form-group">
-                <label for="menuDropdown">Dropdown</label>
-                <select class="form-control" id="menuDropdown" readonly>
-                  <option>Opció 1</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="nav-multiple" role="tabpanel" aria-labelledby="nav-multiple-tab">
-            <!-- Multiple Selection -->
-            <div class="card card-body afegirCampLink" id="collapseMultiple">
-              <div class="form-group">
-                <label for="menuMultiple">Multiple</label>
-                <select multiple class="form-control" id="menuMultiple" disabled>
-                  <option>Opció 1</option>
-                  <option>Opció 2</option>
-                  <option>Opció 3</option>
-                  <option>Opció 4</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
+
 
 
 
@@ -159,21 +166,7 @@
                 </div>
                 <div class="form-group">
                   <label for="modal3InputLabel">Rang màxim:</label>
-                  <input type="text" class="form-control" id="modal3InputLabelMax" placeholder="Label">
-                </div>
-              </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label for="modal4InputLabel">Introdueix el label del camp:</label>
-                  <input type="text" class="form-control" id="modal4InputLabel" placeholder="Label">
-                </div>
-                <div class="form-group">
-                  <label for="modal4InputLabel">Rang minim:</label>
-                  <input type="text" class="form-control" id="modal4InputLabelMinim" placeholder="Label">
-                </div>
-                <div class="form-group">
-                  <label for="modal4InputLabel">Rang màxim:</label>
-                  <input type="text" class="form-control" id="modal4InputLabelMax" placeholder="Label">
+                  <input type="text" class="form-control" id="modal3InputLabelMaxim" placeholder="Label">
                 </div>
               </div>
               <div class="modal-footer">

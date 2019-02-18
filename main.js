@@ -35,12 +35,16 @@ function crearFormulari() {
   cardBody.appendChild(formulari);
   container.appendChild(cardBody);
 
+  var icona = document.createElement('i');
+  icona.setAttribute('class', 'far fa-trash-alt');
+  container.appendChild(icona);
+
   document.getElementById("botoEditar").style.visibility = "visible";
 }
 
 function eliminarFormulari(idF) {
   var form = idF.target;
-  var borrar = form.parentNode;
+  var borrar = form.parentNode.parentNode;
   borrar.remove();
 }
 
@@ -238,7 +242,7 @@ function crearInputText(textInput) {
 
   //Lo anadimos todo al formgroup
   formInline.setAttribute("class", "form-inline");
-  formInline.appendChild(inputLabel);
+  //formInline.appendChild(inputLabel);
   formInline.appendChild(input);
   formInline.appendChild(checkEliminarCamp());
 

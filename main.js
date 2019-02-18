@@ -105,6 +105,17 @@ function guardarModal3() {
   $('#modal3').modal('hide');
   crearFormulari();
 }
+function obrirModal4() {
+  $('#modal4').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModal4() {
+  modal3InputLabel = document.getElementById('moda41InputLabe3').value;
+  console.log(modal4InputLabel);
+  $('#modal4').modal('hide');
+  crearFormulari();
+}
 
 //TO-DO: els que necessiten rang i opcions han d'apareixer abans del titol
 
@@ -199,28 +210,12 @@ function checkEliminarCamp() {
 //-------------------------Inputs-------------------------//
 //#########################################################//
 
-<<<<<<< HEAD
-collapseEmail = document.getElementById('collapseEmail');
-collapsePass = document.getElementById('collapsePass');
-collapseText = document.getElementById('collapseText');
-collapseNum = document.getElementById('collapseNum');
-collapseFile = document.getElementById('collapseFile');
-collapseTextA = document.getElementById('collapseTextA');
-
-collapseEmail.addEventListener('click', obrirModal1);
-collapsePass.addEventListener('click', obrirModal1);
-collapseText.addEventListener('click', obrirModal1);
-collapseNum.addEventListener('click', obrirModal1);
-collapseFile.addEventListener('click', obrirModal1);
-collapseTextA.addEventListener('click', obrirModal1);
-=======
 inEmail = document.getElementById('collapseEmail');
 inPass = document.getElementById('collapsePass');
 inText = document.getElementById('collapseText');
 inNum = document.getElementById('collapseNum');
 inFile = document.getElementById('collapseFile');
 inTextA = document.getElementById('collapseTextA');
->>>>>>> f9343fea515853c8cea095cf42460d31714112ae
 
 inEmail.addEventListener("click", obrirModal1);
 inPass.addEventListener("click", obrirModal1);

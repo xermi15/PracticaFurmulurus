@@ -94,6 +94,17 @@ function guardarModal2() {
   $('#modal2').modal('hide');
   crearFormulari();
 }
+function obrirModal3() {
+  $('#modal3').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModal3() {
+  modal3InputLabel = document.getElementById('modal1InputLabe3').value;
+  console.log(modal3InputLabel);
+  $('#modal3').modal('hide');
+  crearFormulari();
+}
 
 //TO-DO: els que necessiten rang i opcions han d'apareixer abans del titol
 
@@ -202,6 +213,16 @@ collapseNum.addEventListener('click', obrirModal1);
 collapseFile.addEventListener('click', obrirModal1);
 collapseTextA.addEventListener('click', obrirModal1);
 
+<<<<<<< HEAD
+inEmail.addEventListener("click", obrirModal1);
+inPass.addEventListener("click", obrirModal1);
+inText.addEventListener("click", obrirModal3);
+inNum.addEventListener("click", obrirModal4);
+inFile.addEventListener("click", obrirModal1);
+inTextA.addEventListener("click", obrirModal1);
+
+=======
+>>>>>>> 43cc615b0243b80b39fdeaa4400c1becd2fd8ff1
 //TO-DO: que cada vez sea un id diferente
 function crearInputText(textInput) {
   var input = document.createElement("input");

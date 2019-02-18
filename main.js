@@ -173,23 +173,19 @@ function crearBotoSubmit() {
 // }
 function checkEliminarCamp() {
   var formCheck = document.createElement("div");
-  var inputCheck = document.createElement("input");
-  var labelCheck = document.createElement("label");
-  var X = document.createTextNode("X");
+  var aCheck = document.createElement("a");
+  var iCheck = document.createElement("i");
 
   formCheck.setAttribute("class", "form-check mb-2 mr-sm-2 eliminarCamp");
-  formCheck.setAttribute("style", "visibility: hidden;");
+  //formCheck.setAttribute("style", "visibility: hidden;");
 
-  inputCheck.setAttribute("class", "form-check-input");
-  inputCheck.setAttribute("type", "checkbox");
-  inputCheck.setAttribute("id", "inlineFormCheck");
+  iCheck.setAttribute("class", "far fa-trash-alt");
 
-  labelCheck.setAttribute("for", "inlineFormCheck");
-  labelCheck.setAttribute("class", "form-check-input");
+  aCheck.setAttribute("href", "#");
 
-  labelCheck.appendChild(X);
-  formCheck.appendChild(inputCheck);
-  formCheck.appendChild(labelCheck);
+  aCheck.appendChild(iCheck);
+  formCheck.appendChild(aCheck);
+
 
   return formCheck;
 }
@@ -209,7 +205,7 @@ inTextA = document.getElementById('collapseTextA');
 inEmail.addEventListener("click", obrirModal1);
 inPass.addEventListener("click", obrirModal1);
 inText.addEventListener("click", obrirModal3);
-inNum.addEventListener("click", obrirModal4);
+//inNum.addEventListener("click", obrirModal4);
 inFile.addEventListener("click", obrirModal1);
 inTextA.addEventListener("click", obrirModal1);
 

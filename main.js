@@ -35,10 +35,6 @@ function crearFormulari() {
   cardBody.appendChild(formulari);
   container.appendChild(cardBody);
 
-  var icona = document.createElement('i');
-  icona.setAttribute('class', 'far fa-trash-alt');
-  container.appendChild(icona);
-
   document.getElementById("botoEditar").style.visibility = "visible";
 }
 

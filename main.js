@@ -262,29 +262,33 @@ function crearInputText(textInput) {
 }
 
 //TO-DO: que cada vez sea un id diferente
+  var contInput = 0;
 function crearInputNumero(label,minim,maxim) {
+
   var input = document.createElement("input");
-  var inputLabel = document.createElement("label");
+  var inputLabel = document.createElement(label);
   var formGroup = document.createElement("div");
 
   //Creamos el campo input
-  input.setAttribute("id", "input");
-  input.setAttribute("type", "input");
+  input.setAttribute("id", "inputnum"+contInput++);
+  input.setAttribute("type", "num");
   input.setAttribute("class", "form-control");
   input.setAttribute("pattern", "^[0-9]*$");
   input.setAttribute("title", "^[0-9]*$");
+  input.setAttribute("min", minim);
+  input.setAttribute("max", maxim);
 
 
   //Creamos el label del campo input
   inputLabel.setAttribute("for", "input");
-  inputLabel.appendChild(document.createTextNode(textInput));
+  inputLabel.appendChild(document.createTextNode(label));
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
   formGroup.appendChild(input);
-
-  return formGroup;
+console.log(formGroup);
+  //return formGroup;
 }
 
 //TO-DO: que cada vez sea un id diferente

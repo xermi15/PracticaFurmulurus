@@ -180,6 +180,7 @@ function checkEliminarCamp() {
   aCheck.appendChild(iCheck);
   formCheck.appendChild(aCheck);
 
+  formCheck.addEventListener("click", fEliminarCamp);
 
   return formCheck;
 }
@@ -213,7 +214,7 @@ function noEditarCamps() {
 
 //Funcio associada a la basura que elimina el camp associat
 function fEliminarCamp() {
-  this.parentNode.parentNode.remove();
+  this.parentNode.remove(this);
 }
 
 //#########################################################//

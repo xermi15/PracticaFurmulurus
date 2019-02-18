@@ -199,21 +199,13 @@ function checkEliminarCamp() {
 //-------------------------Inputs-------------------------//
 //#########################################################//
 
-collapseEmail = document.getElementById('collapseEmail');
-collapsePass = document.getElementById('collapsePass');
-collapseText = document.getElementById('collapseText');
-collapseNum = document.getElementById('collapseNum');
-collapseFile = document.getElementById('collapseFile');
-collapseTextA = document.getElementById('collapseTextA');
+inEmail = document.getElementById('collapseEmail');
+inPass = document.getElementById('collapsePass');
+inText = document.getElementById('collapseText');
+inNum = document.getElementById('collapseNum');
+inFile = document.getElementById('collapseFile');
+inTextA = document.getElementById('collapseTextA');
 
-collapseEmail.addEventListener('click', obrirModal1);
-collapsePass.addEventListener('click', obrirModal1);
-collapseText.addEventListener('click', obrirModal1);
-collapseNum.addEventListener('click', obrirModal1);
-collapseFile.addEventListener('click', obrirModal1);
-collapseTextA.addEventListener('click', obrirModal1);
-
-<<<<<<< HEAD
 inEmail.addEventListener("click", obrirModal1);
 inPass.addEventListener("click", obrirModal1);
 inText.addEventListener("click", obrirModal3);
@@ -221,8 +213,6 @@ inNum.addEventListener("click", obrirModal4);
 inFile.addEventListener("click", obrirModal1);
 inTextA.addEventListener("click", obrirModal1);
 
-=======
->>>>>>> 43cc615b0243b80b39fdeaa4400c1becd2fd8ff1
 //TO-DO: que cada vez sea un id diferente
 function crearInputText(textInput) {
   var input = document.createElement("input");

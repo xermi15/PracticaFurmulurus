@@ -35,12 +35,16 @@ function crearFormulari() {
   cardBody.appendChild(formulari);
   container.appendChild(cardBody);
 
+  var icona = document.createElement('i');
+  icona.setAttribute('class', 'far fa-trash-alt');
+  container.appendChild(icona);
+
   document.getElementById("botoEditar").style.visibility = "visible";
 }
 
 function eliminarFormulari(idF) {
   var form = idF.target;
-  var borrar = form.parentNode;
+  var borrar = form.parentNode.parentNode;
   borrar.remove();
 }
 
@@ -196,23 +200,19 @@ function crearBotoSubmit() {
 // }
 function checkEliminarCamp() {
   var formCheck = document.createElement("div");
-  var inputCheck = document.createElement("input");
-  var labelCheck = document.createElement("label");
-  var X = document.createTextNode("X");
+  var aCheck = document.createElement("a");
+  var iCheck = document.createElement("i");
 
   formCheck.setAttribute("class", "form-check mb-2 mr-sm-2 eliminarCamp");
-  formCheck.setAttribute("style", "visibility: hidden;");
+  //formCheck.setAttribute("style", "visibility: hidden;");
 
-  inputCheck.setAttribute("class", "form-check-input");
-  inputCheck.setAttribute("type", "checkbox");
-  inputCheck.setAttribute("id", "inlineFormCheck");
+  iCheck.setAttribute("class", "far fa-trash-alt");
 
-  labelCheck.setAttribute("for", "inlineFormCheck");
-  labelCheck.setAttribute("class", "form-check-input");
+  aCheck.setAttribute("href", "#");
 
-  labelCheck.appendChild(X);
-  formCheck.appendChild(inputCheck);
-  formCheck.appendChild(labelCheck);
+  aCheck.appendChild(iCheck);
+  formCheck.appendChild(aCheck);
+
 
   return formCheck;
 }
@@ -254,7 +254,7 @@ function crearInputText(textInput) {
 
   //Lo anadimos todo al formgroup
   formInline.setAttribute("class", "form-inline");
-  formInline.appendChild(inputLabel);
+  //formInline.appendChild(inputLabel);
   formInline.appendChild(input);
   formInline.appendChild(checkEliminarCamp());
 

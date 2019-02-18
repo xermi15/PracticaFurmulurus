@@ -232,7 +232,7 @@ inTextA = document.getElementById('collapseTextA');
 inEmail.addEventListener("click", obrirModal1);
 inPass.addEventListener("click", obrirModal1);
 inText.addEventListener("click", obrirModal3);
-//inNum.addEventListener("click", obrirModal4);
+inNum.addEventListener("click", obrirModal4);
 inFile.addEventListener("click", obrirModal1);
 inTextA.addEventListener("click", obrirModal1);
 

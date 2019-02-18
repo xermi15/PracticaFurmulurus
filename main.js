@@ -105,6 +105,17 @@ function guardarModal3() {
   $('#modal3').modal('hide');
   crearFormulari();
 }
+function obrirModal4() {
+  $('#modal4').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModal4() {
+  modal3InputLabel = document.getElementById('moda41InputLabe3').value;
+  console.log(modal4InputLabel);
+  $('#modal4').modal('hide');
+  crearFormulari();
+}
 
 //TO-DO: els que necessiten rang i opcions han d'apareixer abans del titol
 

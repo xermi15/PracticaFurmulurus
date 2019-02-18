@@ -10,21 +10,12 @@ h1 {
   text-align: center;
 }
 
-form {
+/*form {
   margin: 2%;
   padding: 1%;
   border: 1px solid black;
   text-align: left;
-}
-
-h4.titol-panel {
-    border: solid 2px;
-    height: 10%;
-}
-
-.titol-panel{
-  margin-top: 20px;
-}
+}*/
 
 button {
   margin: .25rem;
@@ -35,6 +26,12 @@ button {
   border: none;
 }
 
+/*TO-DO: colors i efectes del link*/
+.titolPanelControl {
+  align-self: self-start;
+  color: black;
+}
+
 .collapse {
   text-align: left;
 }
@@ -43,6 +40,6 @@ button {
     background: #28a74596;
 }
 
-.close-icon {
-  cursor: pointer;
+.formulariCreat{
+  margin-top: 1%;
 }

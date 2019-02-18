@@ -1,15 +1,16 @@
-//https://bootsnipp.com/forms
-
 function crearFormulari() {
 
   /*creació formulari*/
   var container = document.getElementsByTagName("div")[0];
+  var cardBody = document.createElement("div");
 	var formulari = document.createElement("form");
   var titolForm = document.createElement("h4");
   var textTitol = document.createTextNode("Formulari " + inputCrear.value);
 
   formulari.setAttribute("id", inputCrear.value);
+  formulari.setAttribute("class", "formulariCreat");
 
+  cardBody.setAttribute("class", "card card-body formulariCreat")
   /*Estructura del formulari*/
   titolForm.appendChild(textTitol);
   formulari.appendChild(titolForm);
@@ -30,12 +31,11 @@ function crearFormulari() {
   formulari.appendChild(crearBotoSubmit());
   //==================FIN================//
 
-  formulari.appendChild(botoEliminar(formulari.id));
-  container.appendChild(formulari);
+  formulari.appendChild(botoEliminarForm(formulari.id));
+  cardBody.appendChild(formulari);
+  container.appendChild(cardBody);
 
   document.getElementById("botoEditar").style.visibility = "visible";
-
-
 }
 
 function eliminarFormulari(idF) {
@@ -45,49 +45,21 @@ function eliminarFormulari(idF) {
 }
 
 function editarFormularis() {
-  //Busca tots els elements editables i els marca com a visibles
+  document.getElementById("eliminarCamp").style.visibility = "visible";
 }
 
-
-
-/*creacio de panel de control*/
-// var container = document.getElementsByTagName("div")[0];
-// var caixa = document.createElement("div");
-// caixa.setAttribute("id","content-panel");
-// var titolForm = document.createElement("h4");
-// titolForm.setAttribute("class", "titol-panel");
-// var textControl = document.createTextNode("Panel control Formulari");
-
-/*Estructura Panel de control*/
-// titolForm.appendChild(textControl);
-// caixa.appendChild(titolForm);
-// container.appendChild(caixa);
 
 //Boton e input crear formulario
 botoCrear = document.getElementById('botoCrear');
 inputCrear = document.getElementById('inputCrear');
-//botoCrear.addEventListener('click', crearFormulari);
-
-//Opcions de la navbar
-collapseRadio = document.getElementById('collapseRadio');
-collapseCheckbox = document.getElementById('collapseCheckbox');
-collapseDropdown = document.getElementById('collapseDropdown');
-collapseMultiple = document.getElementById('collapseMultiple');
-collapseRadio.addEventListener('click', obrirModal2);
-collapseCheckbox.addEventListener('click', obrirModal2);
-collapseDropdown.addEventListener('click', obrirModal2);
-collapseMultiple.addEventListener('click', obrirModal2);
+botoEditar = document.getElementById('botoEditar');
+botoEditar.addEventListener('click', editarFormularis);
 
 //Guardar
 guardarM1 = document.getElementById('guardarModal1');
 guardarM2 = document.getElementById('guardarModal2');
 guardarM1.addEventListener('click', guardarModal1);
 guardarM2.addEventListener('click', guardarModal2);
-
-//Aixo borra camps del formulari, ojo
-document.getElementsByClassName('close-icon').addEventListener('click',function() {
-  $(this).closest('.form-group').fadeOut();
-});
 
 
 
@@ -129,7 +101,7 @@ function guardarModal2() {
 //-------------------------Botones-------------------------//
 //#########################################################//
 
-function botoEliminar(idF) {
+function botoEliminarForm(idF) {
   var boto = document.createElement("button");
   var textBoto = document.createTextNode("Eliminar");
 
@@ -166,20 +138,27 @@ function crearBotoSubmit() {
   return boto;
 }
 
-function eliminarCamp() {
-  var creu = document.createElement("span");
-  var icon = document.createElement("i");
+function checkEliminarCamp() {
+  var formCheck = document.createElement("div");
+  var inputCheck = document.createElement("input");
+  var labelCheck = document.createElement("label");
+  var X = document.createTextNode("X");
 
-  icon.setAttribute("class", "fas fa-times");
-  creu.setAttribute("class", "pull-right clickable close-icon");
-  creu.setAttribute("data-effect", "fadeOut");
+  formCheck.setAttribute("class", "form-check mb-2 mr-sm-2 eliminarCamp");
+  formCheck.setAttribute("style", "visibility: hidden;");
 
-  creu.appendChild(icon);
+  inputCheck.setAttribute("class", "form-check-input");
+  inputCheck.setAttribute("type", "checkbox");
+  inputCheck.setAttribute("id", "inlineFormCheck");
 
-  var creuE = creu;
-  creuE.addEventListener("click", eliminarFormulari);
+  labelCheck.setAttribute("for", "inlineFormCheck");
+  labelCheck.setAttribute("class", "form-check-input");
 
-  return creu;
+  labelCheck.appendChild(X);
+  formCheck.appendChild(inputCheck);
+  formCheck.appendChild(labelCheck);
+
+  return formCheck;
 }
 
 
@@ -187,42 +166,43 @@ function eliminarCamp() {
 //-------------------------Inputs-------------------------//
 //#########################################################//
 
+collapseEmail = document.getElementById('collapseEmail');
+collapsePass = document.getElementById('collapsePass');
+collapseText = document.getElementById('collapseText');
+collapseNum = document.getElementById('collapseNum');
+collapseFile = document.getElementById('collapseFile');
+collapseTextA = document.getElementById('collapseTextA');
 
-var inEmail = document.getElementById("collapseEmail");
-var inPass = document.getElementById("collapsePass");
-var inText = document.getElementById("collapseText");
-var inNum = document.getElementById("collapseNum");
-var inFile = document.getElementById("collapseFile");
-var inTextA = document.getElementById("collapseTextA");
+collapseEmail.addEventListener('click', obrirModal1);
+collapsePass.addEventListener('click', obrirModal1);
+collapseText.addEventListener('click', obrirModal1);
+collapseNum.addEventListener('click', obrirModal1);
+collapseFile.addEventListener('click', obrirModal1);
+collapseTextA.addEventListener('click', obrirModal1);
 
-inEmail.addEventListener("click", obrirModal1);
-inPass.addEventListener("click", obrirModal1);
-inText.addEventListener("click", obrirModal1);
-inNum.addEventListener("click", obrirModal1);
-inFile.addEventListener("click", obrirModal1);
-inTextA.addEventListener("click", obrirModal1);
 //TO-DO: que cada vez sea un id diferente
 function crearInputText(textInput) {
   var input = document.createElement("input");
   var inputLabel = document.createElement("label");
-  var formGroup = document.createElement("div");
+  var formInline = document.createElement("form");
 
   //Creamos el campo input
   input.setAttribute("id", "input");
-  input.setAttribute("type", "input");
-  input.setAttribute("class", "form-control");
+  input.setAttribute("type", "text");
+  input.setAttribute("class", "form-control mb-2 mr-sm-2 col-11");
 
   //Creamos el label del campo input
   inputLabel.setAttribute("for", "input");
+  inputLabel.setAttribute("class", "sr-only");
   inputLabel.appendChild(document.createTextNode(textInput));
 
   //Lo anadimos todo al formgroup
-  formGroup.setAttribute("class", "form-group");
-  formGroup.appendChild(inputLabel);
-  formGroup.appendChild(input);
-  formGroup.appendChild(eliminarCamp());
+  formInline.setAttribute("class", "form-inline");
+  formInline.appendChild(inputLabel);
+  formInline.appendChild(input);
+  formInline.appendChild(checkEliminarCamp());
 
-  return formGroup;
+  return formInline;
 }
 
 //TO-DO: que cada vez sea un id diferente
@@ -375,6 +355,12 @@ function crearPassword() {
 //-------------------------Radio---------------------------//
 //#########################################################//
 
+collapseRadio = document.getElementById('collapseRadio');
+collapseCheckbox = document.getElementById('collapseCheckbox');
+
+collapseRadio.addEventListener('click', obrirModal2);
+collapseCheckbox.addEventListener('click', obrirModal2);
+
 //TO-DO: Error en la visualizacion
 //TO-DO: que cada vez sea un id diferente
 function crearCheck(textCheck) {
@@ -441,6 +427,12 @@ function crearRadio() {
 //#########################################################//
 //--------------Dropdown i seleccion multiple--------------//
 //#########################################################//
+
+collapseDropdown = document.getElementById('collapseDropdown');
+collapseMultiple = document.getElementById('collapseMultiple');
+
+collapseDropdown.addEventListener('click', obrirModal2);
+collapseMultiple.addEventListener('click', obrirModal2);
 
 //TO-DO: que cada vez sea un id diferente
 //TO-DO: crear cantidad variable de opciones

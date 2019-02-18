@@ -36,16 +36,7 @@ function crearFormulari() {
   container.appendChild(cardBody);
 
   document.getElementById("botoEditar").style.visibility = "visible";
-}
-
-function eliminarFormulari(idF) {
-  var form = idF.target;
-  var borrar = form.parentNode.parentNode;
-  borrar.remove();
-}
-
-function editarFormularis() {
-  document.getElementById("eliminarCamp").style.visibility = "visible";
+  noEditarCamps();
 }
 
 
@@ -53,7 +44,8 @@ function editarFormularis() {
 botoCrear = document.getElementById('botoCrear');
 inputCrear = document.getElementById('inputCrear');
 botoEditar = document.getElementById('botoEditar');
-botoEditar.addEventListener('click', editarFormularis);
+botoCrear.addEventListener('click', crearFormulari);
+botoEditar.addEventListener('click', editarCamps);
 
 //Guardar
 guardarM1 = document.getElementById('guardarModal1');
@@ -172,37 +164,16 @@ function crearBotoSubmit() {
   return boto;
 }
 
-// function checkEliminarCamp() {
-//   var formCheck = document.createElement("div");
-//   var inputCheck = document.createElement("input");
-//   var labelCheck = document.createElement("label");
-//   var X = document.createTextNode("X");
-//
-//   formCheck.setAttribute("class", "form-check mb-2 mr-sm-2 eliminarCamp");
-//   formCheck.setAttribute("style", "visibility: hidden;");
-//
-//   inputCheck.setAttribute("class", "form-check-input");
-//   inputCheck.setAttribute("type", "checkbox");
-//   inputCheck.setAttribute("id", "inlineFormCheck");
-//
-//   labelCheck.setAttribute("for", "inlineFormCheck");
-//   labelCheck.setAttribute("class", "form-check-input");
-//
-//   labelCheck.appendChild(X);
-//   formCheck.appendChild(inputCheck);
-//   formCheck.appendChild(labelCheck);
-//
-//   return formCheck;
-// }
 function checkEliminarCamp() {
   var formCheck = document.createElement("div");
   var aCheck = document.createElement("a");
   var iCheck = document.createElement("i");
 
-  formCheck.setAttribute("class", "form-check mb-2 mr-sm-2 eliminarCamp");
+  formCheck.setAttribute("class", "form-check mb-2 mr-sm-2");
   //formCheck.setAttribute("style", "visibility: hidden;");
 
-  iCheck.setAttribute("class", "far fa-trash-alt");
+  iCheck.setAttribute("class", "far fa-trash-alt eliminarCamp");
+  iCheck.setAttribute("style", "display: none;");
 
   aCheck.setAttribute("href", "#");
 
@@ -213,6 +184,37 @@ function checkEliminarCamp() {
   return formCheck;
 }
 
+//Funcio associada al boto eliminar que elimina el formulari
+function eliminarFormulari(idF) {
+  var form = idF.target;
+  var borrar = form.parentNode.parentNode;
+  borrar.remove();
+}
+
+//Funcio que canvia l'estat dels camps a editables o no editables
+function editarCamps() {
+  var x = document.getElementsByClassName('eliminarCamp');
+  for (var i = 0; i < x.length; i++) {
+    if (x[i].style.display === 'flex') {
+      x[i].style.display = 'none';
+    } else {
+      x[i].style.display = 'flex';
+    }
+  }
+}
+
+//Funcio que canvia l'estat dels camps a no editables
+function noEditarCamps() {
+  var x = document.getElementsByClassName('eliminarCamp');
+  for (var i = 0; i < x.length; i++) {
+    x[i].style.display = 'none';
+  }
+}
+
+//Funcio associada a la basura que elimina el camp associat
+function fEliminarCamp() {
+  this.parentNode.parentNode.remove();
+}
 
 //#########################################################//
 //-------------------------Inputs-------------------------//

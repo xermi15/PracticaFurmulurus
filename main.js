@@ -149,6 +149,28 @@ function crearBotoSubmit() {
   return boto;
 }
 
+// function checkEliminarCamp() {
+//   var formCheck = document.createElement("div");
+//   var inputCheck = document.createElement("input");
+//   var labelCheck = document.createElement("label");
+//   var X = document.createTextNode("X");
+//
+//   formCheck.setAttribute("class", "form-check mb-2 mr-sm-2 eliminarCamp");
+//   formCheck.setAttribute("style", "visibility: hidden;");
+//
+//   inputCheck.setAttribute("class", "form-check-input");
+//   inputCheck.setAttribute("type", "checkbox");
+//   inputCheck.setAttribute("id", "inlineFormCheck");
+//
+//   labelCheck.setAttribute("for", "inlineFormCheck");
+//   labelCheck.setAttribute("class", "form-check-input");
+//
+//   labelCheck.appendChild(X);
+//   formCheck.appendChild(inputCheck);
+//   formCheck.appendChild(labelCheck);
+//
+//   return formCheck;
+// }
 function checkEliminarCamp() {
   var formCheck = document.createElement("div");
   var inputCheck = document.createElement("input");
@@ -177,6 +199,7 @@ function checkEliminarCamp() {
 //-------------------------Inputs-------------------------//
 //#########################################################//
 
+<<<<<<< HEAD
 collapseEmail = document.getElementById('collapseEmail');
 collapsePass = document.getElementById('collapsePass');
 collapseText = document.getElementById('collapseText');
@@ -190,6 +213,14 @@ collapseText.addEventListener('click', obrirModal1);
 collapseNum.addEventListener('click', obrirModal1);
 collapseFile.addEventListener('click', obrirModal1);
 collapseTextA.addEventListener('click', obrirModal1);
+=======
+inEmail = document.getElementById('collapseEmail');
+inPass = document.getElementById('collapsePass');
+inText = document.getElementById('collapseText');
+inNum = document.getElementById('collapseNum');
+inFile = document.getElementById('collapseFile');
+inTextA = document.getElementById('collapseTextA');
+>>>>>>> f9343fea515853c8cea095cf42460d31714112ae
 
 inEmail.addEventListener("click", obrirModal1);
 inPass.addEventListener("click", obrirModal1);

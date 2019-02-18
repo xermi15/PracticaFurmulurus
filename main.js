@@ -58,8 +58,12 @@ botoEditar.addEventListener('click', editarFormularis);
 //Guardar
 guardarM1 = document.getElementById('guardarModal1');
 guardarM2 = document.getElementById('guardarModal2');
+guardarM3 = document.getElementById('guardarModal3');
+guardarM4 = document.getElementById('guardarModal4');
 guardarM1.addEventListener('click', guardarModal1);
 guardarM2.addEventListener('click', guardarModal2);
+guardarM3.addEventListener('click', guardarModal3);
+guardarM4.addEventListener('click', guardarModal4);
 
 
 
@@ -100,8 +104,12 @@ function obrirModal3() {
 
 //Guarda el contingut del camp label i tanca el modal
 function guardarModal3() {
-  modal3InputLabel = document.getElementById('modal1InputLabe3').value;
+  modal3InputLabel = document.getElementById('modal3InputLabel').value;
+  modal3InputMinim = document.getElementById('modal3InputLabelMinim').value;
+  modal3InputMax = document.getElementById('modal3InputLabelMax').value;
   console.log(modal3InputLabel);
+  console.log(modal3InputMinim);
+  console.log(modal3InputMax);
   $('#modal3').modal('hide');
   crearFormulari();
 }
@@ -111,10 +119,14 @@ function obrirModal4() {
 
 //Guarda el contingut del camp label i tanca el modal
 function guardarModal4() {
-  modal3InputLabel = document.getElementById('moda41InputLabe3').value;
-  console.log(modal4InputLabel);
+  modal4InputLabel = document.getElementById('modal4InputLabel').value;
+  modal4NumMini = document.getElementById('modal4InputLabelMinim').value;
+  modal4NumMaxi = document.getElementById('modal4InputLabelMax').value;
+  //console.log(modal4InputLabel);
+  //console.log(modal4NumMini);
+  //console.log(modal4NumMaxi);
   $('#modal4').modal('hide');
-  crearFormulari();
+  crearInputNumero(modal4InputLabel,modal4NumMini,modal4NumMaxi);
 }
 
 //TO-DO: els que necessiten rang i opcions han d'apareixer abans del titol
@@ -216,7 +228,7 @@ inTextA = document.getElementById('collapseTextA');
 inEmail.addEventListener("click", obrirModal1);
 inPass.addEventListener("click", obrirModal1);
 inText.addEventListener("click", obrirModal3);
-//inNum.addEventListener("click", obrirModal4);
+inNum.addEventListener("click", obrirModal4);
 inFile.addEventListener("click", obrirModal1);
 inTextA.addEventListener("click", obrirModal1);
 
@@ -246,7 +258,7 @@ function crearInputText(textInput) {
 }
 
 //TO-DO: que cada vez sea un id diferente
-function crearInputNumero(textInput) {
+function crearInputNumero(label,minim,maxim) {
   var input = document.createElement("input");
   var inputLabel = document.createElement("label");
   var formGroup = document.createElement("div");

@@ -1,5 +1,8 @@
 function crearFormulari() {
 
+  //mostrem el panell de controls
+  document.getElementById("panelControl").style.visibility = "visible";
+  
   /*creació formulari*/
   var container = document.getElementsByTagName("div")[0];
   var cardBody = document.createElement("div");
@@ -36,6 +39,7 @@ function crearFormulari() {
   container.appendChild(cardBody);
 
   document.getElementById("botoEditar").style.visibility = "visible";
+
   noEditarCamps();
 }
 

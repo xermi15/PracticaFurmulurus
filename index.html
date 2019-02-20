@@ -122,7 +122,7 @@
 
 
         <!-- Modal Inputs -->
-        <div class="modal fade" id="obrirModalEmail" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal fade" id="modalEmail" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -136,10 +136,16 @@
                   <label for="modal1InputLabel">Introdueix el label del camp:</label>
                   <input type="text" class="form-control" id="modal1InputLabel" placeholder="Label">
                 </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="requiredEmail">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Camp Obligatori
+                  </label>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
-                <button type="button" class="btn btn-primary" id="guardarModal1">Guarda</button>
+                <button type="button" class="btn btn-primary" id="guardarModalEmail">Guarda</button>
               </div>
             </div>
           </div>

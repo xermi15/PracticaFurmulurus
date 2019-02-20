@@ -2,7 +2,7 @@ function crearFormulari() {
 
   //mostrem el panell de controls
   document.getElementById("panelControl").style.visibility = "visible";
-  
+
   /*creació formulari*/
   var container = document.getElementsByTagName("div")[0];
   var cardBody = document.createElement("div");
@@ -52,11 +52,11 @@ botoCrear.addEventListener('click', crearFormulari);
 botoEditar.addEventListener('click', editarCamps);
 
 //Guardar
-guardarM1 = document.getElementById('guardarModal1');
+guardarM1 = document.getElementById('guardarModalEmail');
 guardarM2 = document.getElementById('guardarModal2');
 guardarM3 = document.getElementById('guardarModal3');
 guardarM4 = document.getElementById('guardarModal4');
-guardarM1.addEventListener('click', guardarModal1);
+guardarM1.addEventListener('click', guardarModalEmail);
 guardarM2.addEventListener('click', guardarModal2);
 guardarM3.addEventListener('click', guardarModal3);
 guardarM4.addEventListener('click', guardarModal4);
@@ -68,15 +68,20 @@ guardarM4.addEventListener('click', guardarModal4);
 //#########################################################//
 
 //Obre el modal que et demana el label del camp
-function obrirModal1() {
-  $('#modal1').modal('show');
+function obrirmodalEmail() {
+  $('#modalEmail').modal('show');
 }
 
 //Guarda el contingut del camp label i tanca el modal
-function guardarModal1() {
-  modal1InputLabel = document.getElementById('modal1InputLabel').value;
-  console.log(modal1InputLabel);
-  $('#modal1').modal('hide');
+function guardarModalEmail() {
+  modalEmail = document.getElementById('modal1InputLabel').value;
+  requiredEmail = document.getElementById('requiredEmail').checked;
+  console.log(modalEmail);
+    console.log(requiredEmail);
+  if(requiredEmail == true){
+    console.log("T");
+  }
+  $('#modalEmail').modal('hide');
   crearFormulari();
 }
 
@@ -232,12 +237,12 @@ inNum = document.getElementById('collapseNum');
 inFile = document.getElementById('collapseFile');
 inTextA = document.getElementById('collapseTextA');
 
-inEmail.addEventListener("click", obrirModal1);
-inPass.addEventListener("click", obrirModal1);
+inEmail.addEventListener("click", obrirmodalEmail);
+//inPass.addEventListener("click", obrirModal1);
 inText.addEventListener("click", obrirModal3);
 inNum.addEventListener("click", obrirModal4);
-inFile.addEventListener("click", obrirModal1);
-inTextA.addEventListener("click", obrirModal1);
+//inFile.addEventListener("click", obrirModal1);
+//inTextA.addEventListener("click", obrirModal1);
 
 //TO-DO: que cada vez sea un id diferente
 function crearInputText(textInput) {

@@ -1,5 +1,8 @@
 function crearFormulari() {
 
+  //mostrem el panell de controls
+  document.getElementById("panelControl").style.visibility = "visible";
+  
   /*creació formulari*/
   var container = document.getElementsByTagName("div")[0];
   var cardBody = document.createElement("div");
@@ -36,6 +39,7 @@ function crearFormulari() {
   container.appendChild(cardBody);
 
   document.getElementById("botoEditar").style.visibility = "visible";
+
   noEditarCamps();
 }
 
@@ -180,6 +184,7 @@ function checkEliminarCamp() {
   aCheck.appendChild(iCheck);
   formCheck.appendChild(aCheck);
 
+  formCheck.addEventListener("click", fEliminarCamp);
 
   return formCheck;
 }
@@ -213,7 +218,7 @@ function noEditarCamps() {
 
 //Funcio associada a la basura que elimina el camp associat
 function fEliminarCamp() {
-  this.parentNode.parentNode.remove();
+  this.parentNode.remove(this);
 }
 
 //#########################################################//

@@ -10,11 +10,11 @@
         <h1>Crea el teu propi formulari!</h1>
         <form class="panelControl">
           <input class="form-control" placeholder="Nom del formulari" type="text" name="inputCrear" id="inputCrear">
-          <button type="button" class="btn btn-secondary" id="botoCrear">Crea</button>
+          <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#panelControl" id="botoCrear">Crea</button>
           <button type="button" style="visibility: hidden;" class="btn btn-secondary" id="botoEditar">Edita</button>
         </form>
 
-        <div id="panelControl" class="card card-body" style="visibility: hidden;">
+        <div id="panelControl" class="collapse card card-body">
           <button class="btn btn-link titolPanelControl" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="true" aria-controls="navbarCollapse">
             <h4>Panell de control</h4>
           </button>
@@ -122,7 +122,7 @@
 
 
         <!-- Modal Inputs -->
-        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal fade" id="obrirModalEmail" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -238,7 +238,7 @@
         </div>
 
 
-      <!-- end containeer -->
+      <!-- end container -->
       </div>
 
       <script type="text/javascript" src="main.js"></script>

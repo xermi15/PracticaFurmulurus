@@ -264,7 +264,7 @@ function crearInputText(textInput) {
 function crearInputNumero(label,minim,maxim) {
 
   var input = document.createElement("input");
-  var inputLabel = document.createElement(label);
+  var inputLabel = document.createElement("label");
   var formGroup = document.createElement("div");
 
   //Creamos el campo input
@@ -285,9 +285,11 @@ function crearInputNumero(label,minim,maxim) {
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
   formGroup.appendChild(input);
-console.log(formGroup);
-  //return formGroup;
+
+  insertForm(formGroup);
+
 }
+
 
 //TO-DO: que cada vez sea un id diferente
 function crearInputData(textInput) {
@@ -380,7 +382,7 @@ function crearEmail() {
   formGroup.appendChild(emailLabel);
   formGroup.appendChild(email);
 
-  return formGroup;
+  insertForm(formGroup);
 }
 
 //TO-DO: que cada vez sea un id diferente
@@ -442,7 +444,6 @@ function crearCheck(textCheck) {
   formGroup.appendChild(checkLabel);
   formGroup.appendChild(check);
 
-  return formGroup;
 }
 
 //TO-DO: Error en la visualizacion
@@ -553,6 +554,23 @@ function crearSeleccionMultiple(textSelMul) {
   formGroup.appendChild(sm);
 
   return formGroup;
+}
+
+//#########################################################//
+//--------------Inserta un input a un formulari-----------//
+//#########################################################//
+
+function insertForm(formGroup){
+  var form = document.getElementsByTagName("form");
+
+  for(var i = 0; i < form.length; i++){
+    if(form[i].id == inputCrear.value){
+      //console.log(form[i].id);
+      var add = document.getElementById(form[i].id);
+      console.log(add.childNodes[1]);
+      $(add.childNodes[1]).before(formGroup);
+    }
+  }
 }
 
 

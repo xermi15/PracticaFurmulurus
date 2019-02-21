@@ -76,13 +76,9 @@ function obrirmodalEmail() {
 function guardarModalEmail() {
   modalEmail = document.getElementById('modal1InputLabel').value;
   requiredEmail = document.getElementById('requiredEmail').checked;
-  console.log(modalEmail);
-    console.log(requiredEmail);
-  if(requiredEmail == true){
-    console.log("T");
-  }
+
   $('#modalEmail').modal('hide');
-  crearFormulari();
+  crearEmail(modalEmail, requiredEmail);
 }
 
 //Obre el modal que et demana el label del camp
@@ -173,7 +169,7 @@ function crearBotoSubmit() {
   return boto;
 }
 
-function checkEliminarCamp() {
+function basuraEliminarCamp() {
   var formCheck = document.createElement("div");
   var aCheck = document.createElement("a");
   var iCheck = document.createElement("i");
@@ -264,7 +260,7 @@ function crearInputText(textInput) {
   formInline.setAttribute("class", "form-inline");
   //formInline.appendChild(inputLabel);
   formInline.appendChild(input);
-  formInline.appendChild(checkEliminarCamp());
+  formInline.appendChild(basuraEliminarCamp());
 
   return formInline;
 }
@@ -274,7 +270,7 @@ function crearInputText(textInput) {
 function crearInputNumero(label,minim,maxim) {
 
   var input = document.createElement("input");
-  var inputLabel = document.createElement("label");
+  var inputLabel = document.createElement(label);
   var formGroup = document.createElement("div");
 
   //Creamos el campo input
@@ -295,11 +291,8 @@ function crearInputNumero(label,minim,maxim) {
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
   formGroup.appendChild(input);
-
   insertForm(formGroup);
-
 }
-
 
 //TO-DO: que cada vez sea un id diferente
 function crearInputData(textInput) {
@@ -373,8 +366,8 @@ function crearInputFile(textInput) {
 
 //TO-DO: que cada vez sea un id diferente
 //TO-DO: el campo a rellenar esta bloqueado
-function crearEmail() {
-  var email = document.createElement("email");
+function crearEmail(label, required) {
+  var email = document.createElement("input");
   var emailLabel = document.createElement("label");
   var formGroup = document.createElement("div");
 
@@ -382,6 +375,9 @@ function crearEmail() {
   email.setAttribute("id", "email");
   email.setAttribute("type", "email");
   email.setAttribute("class", "form-control");
+  if(required == true){
+    email.setAttribute("required", "");
+  }
 
   //Creamos el label
   emailLabel.setAttribute("for", "email");
@@ -454,6 +450,7 @@ function crearCheck(textCheck) {
   formGroup.appendChild(checkLabel);
   formGroup.appendChild(check);
 
+  return formGroup;
 }
 
 //TO-DO: Error en la visualizacion
@@ -575,10 +572,14 @@ function insertForm(formGroup){
 
   for(var i = 0; i < form.length; i++){
     if(form[i].id == inputCrear.value){
-      //console.log(form[i].id);
       var add = document.getElementById(form[i].id);
-      console.log(add.childNodes[1]);
-      $(add.childNodes[1]).before(formGroup);
+      for(var k = 0; k < add.length; k++){
+        if(add[k].id == "boto"){
+          //console.log(k);
+          console.log(add[k].id);
+          $(add.childNodes[k+1]).before(formGroup);
+        }
+      }
     }
   }
 }

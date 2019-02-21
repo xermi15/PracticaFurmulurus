@@ -13,7 +13,7 @@ function crearFormulari() {
   formulari.setAttribute("id", inputCrear.value);
   formulari.setAttribute("class", "formulariCreat");
 
-  cardBody.setAttribute("class", "card card-body formulariCreat")
+  cardBody.setAttribute("class", "card card-body formulariCreat");
   /*Estructura del formulari*/
   titolForm.appendChild(textTitol);
   formulari.appendChild(titolForm);
@@ -51,15 +51,25 @@ botoEditar = document.getElementById('botoEditar');
 botoCrear.addEventListener('click', crearFormulari);
 botoEditar.addEventListener('click', editarCamps);
 
-//Guardar
+//Guardar info modales
 guardarM1 = document.getElementById('guardarModalEmail');
-guardarM2 = document.getElementById('guardarModal2');
+//guardarM2 = document.getElementById('guardarModal2');
 guardarM3 = document.getElementById('guardarModal3');
 guardarM4 = document.getElementById('guardarModal4');
+
 guardarM1.addEventListener('click', guardarModalEmail);
-guardarM2.addEventListener('click', guardarModal2);
+//guardarM2.addEventListener('click', guardarModal2);
 guardarM3.addEventListener('click', guardarModal3);
 guardarM4.addEventListener('click', guardarModal4);
+
+guardarMRadio = document.getElementById('guardarModalRadio');
+guardarMCheck = document.getElementById('guardarModalCheck');
+guardarMDropdown = document.getElementById('guardarModalDropdown');
+guardarMMultiple = document.getElementById('guardarModalMultiple');
+guardarMRadio.addEventListener('click', guardarModalRadio);
+guardarMCheck.addEventListener('click', guardarModalCheck);
+guardarMDropdown.addEventListener('click', guardarModalDropdown);
+guardarMMultiple.addEventListener('click', guardarModalMultiple);
 
 
 
@@ -67,12 +77,9 @@ guardarM4.addEventListener('click', guardarModal4);
 //-------------------------Modales-------------------------//
 //#########################################################//
 
-//Obre el modal que et demana el label del camp
-function obrirmodalEmail() {
+function obrirModalEmail() {
   $('#modalEmail').modal('show');
 }
-
-//Guarda el contingut del camp label i tanca el modal
 function guardarModalEmail() {
   modalEmail = document.getElementById('modal1InputLabel').value;
   requiredEmail = document.getElementById('requiredEmail').checked;
@@ -81,12 +88,9 @@ function guardarModalEmail() {
   crearEmail(modalEmail, requiredEmail);
 }
 
-//Obre el modal que et demana el label del camp
 function obrirModal2() {
   $('#modal2').modal('show');
 }
-
-//Guarda el contingut del camp label i tanca el modal
 function guardarModal2() {
   modal2InputLabel = document.getElementById('modal2InputLabel').value;
   opcionsTextAreaModal2 = $('#opcionsTextAreaModal2').val().split(/\n/);
@@ -95,11 +99,10 @@ function guardarModal2() {
   $('#modal2').modal('hide');
   crearFormulari();
 }
+
 function obrirModal3() {
   $('#modal3').modal('show');
 }
-
-//Guarda el contingut del camp label i tanca el modal
 function guardarModal3() {
   modal3InputLabel = document.getElementById('modal3InputLabel').value;
   modal3InputMinim = document.getElementById('modal3InputLabelMinim').value;
@@ -110,11 +113,10 @@ function guardarModal3() {
   $('#modal3').modal('hide');
   crearFormulari();
 }
+
 function obrirModal4() {
   $('#modal4').modal('show');
 }
-
-//Guarda el contingut del camp label i tanca el modal
 function guardarModal4() {
   modal4InputLabel = document.getElementById('modal4InputLabel').value;
   modal4NumMini = document.getElementById('modal4InputLabelMinim').value;
@@ -126,7 +128,48 @@ function guardarModal4() {
   crearInputNumero(modal4InputLabel,modal4NumMini,modal4NumMaxi);
 }
 
-//TO-DO: els que necessiten rang i opcions han d'apareixer abans del titol
+function obrirModalRadio() {
+  $('#modalRadio').modal('show');
+}
+function guardarModalRadio() {
+  modalRadio = document.getElementById('modalRadioInputLabel').value;
+  modalTA = document.getElementById('opcionsTextAreaModalRadio').value;
+  splitTA = modalTA.split("\n");
+  console.log(splitTA);
+  console.log(modalRadio);
+  $('#modalRadio').modal('hide');
+  crearRadio(modalRadio);
+}
+
+function obrirModalCheck() {
+  $('#modalCheck').modal('show');
+}
+function guardarModalCheck() {
+  modalCheck = document.getElementById('modalCheckInputLabel').value;
+
+  $('#modalCheck').modal('hide');
+  crearCheck(modalCheck);
+}
+
+function obrirModalDropdown() {
+  $('#modalDropdown').modal('show');
+}
+function guardarModalDropdown() {
+  modalDropdown = document.getElementById('modalDropdownInputLabel').value;
+
+  $('#modalDropdown').modal('hide');
+  crearDropdown(modalDropdown);
+}
+
+function obrirModalMultiple() {
+  $('#modalMultiple').modal('show');
+}
+function guardarModalMultiple() {
+  modalMultiple = document.getElementById('modalMultipleInputLabel').value;
+
+  $('#modalMultiple').modal('hide');
+  crearMultiple(modalMultiple);
+}
 
 //#########################################################//
 //-------------------------Botones-------------------------//
@@ -233,7 +276,7 @@ inNum = document.getElementById('collapseNum');
 inFile = document.getElementById('collapseFile');
 inTextA = document.getElementById('collapseTextA');
 
-inEmail.addEventListener("click", obrirmodalEmail);
+inEmail.addEventListener("click", obrirModalEmail);
 //inPass.addEventListener("click", obrirModal1);
 inText.addEventListener("click", obrirModal3);
 inNum.addEventListener("click", obrirModal4);
@@ -291,12 +334,12 @@ function crearInputNumero(label,minim,maxim) {
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
   formGroup.appendChild(input);
-<<<<<<< HEAD
+
   insertForm(formGroup);
-=======
+
 console.log(formGroup);
   //return formGroup;
->>>>>>> beba2812fcecdef3e69d92643b9859723bd0c994
+
 }
 
 //TO-DO: que cada vez sea un id diferente
@@ -429,18 +472,16 @@ function crearPassword() {
 collapseRadio = document.getElementById('collapseRadio');
 collapseCheckbox = document.getElementById('collapseCheckbox');
 
-collapseRadio.addEventListener('click', obrirModal2);
-collapseCheckbox.addEventListener('click', obrirModal2);
+collapseRadio.addEventListener('click', obrirModalRadio);
+collapseCheckbox.addEventListener('click', obrirModalCheck);
 
 //TO-DO: Error en la visualizacion
-//TO-DO: que cada vez sea un id diferente
 function crearCheck(textCheck) {
   var check = document.createElement("input");
   var checkLabel = document.createElement("label");
   var formGroup = document.createElement("div");
 
   //Creamos el campo check
-  check.setAttribute("id", "checkbox");
   check.setAttribute("type", "checkbox");
   check.setAttribute("class", "custom-control-input");
 
@@ -502,8 +543,8 @@ function crearRadio() {
 collapseDropdown = document.getElementById('collapseDropdown');
 collapseMultiple = document.getElementById('collapseMultiple');
 
-collapseDropdown.addEventListener('click', obrirModal2);
-collapseMultiple.addEventListener('click', obrirModal2);
+collapseDropdown.addEventListener('click', obrirModalDropdown);
+collapseMultiple.addEventListener('click', obrirModalMultiple);
 
 //TO-DO: que cada vez sea un id diferente
 //TO-DO: crear cantidad variable de opciones
@@ -568,7 +609,7 @@ function crearSeleccionMultiple(textSelMul) {
   return formGroup;
 }
 
-<<<<<<< HEAD
+
 //#########################################################//
 //--------------Inserta un input a un formulari-----------//
 //#########################################################//
@@ -590,8 +631,6 @@ function insertForm(formGroup){
   }
 }
 
-=======
->>>>>>> beba2812fcecdef3e69d92643b9859723bd0c994
 
 
 //#########################################################//
@@ -623,3 +662,8 @@ function insertForm(formGroup){
 //     1. Hacemos click en el boton editar formulario -> esta cambia de texto a Finalizar Edicion
 //     2. Aparecen las cruces que permiten borrar un elemento (ocultas hasta entonces)
 //     3. Seguiran apareciendo hasta que pulsemos otra vez el boton finalizar edicion -> esta cambia de texto a Editar
+
+
+// TODO:
+//1. Que cuando le des a guardar, los datos de los campos se borren para que cuando
+//   quieras anadir otro campo igual, los campos aparezcan vacios

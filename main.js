@@ -388,7 +388,7 @@ function crearEmail(label, required) {
   formGroup.appendChild(emailLabel);
   formGroup.appendChild(email);
 
-  insertForm(formGroup);
+insertForm(formGroup);
 }
 
 //TO-DO: que cada vez sea un id diferente

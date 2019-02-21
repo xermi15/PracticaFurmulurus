@@ -150,9 +150,38 @@
             </div>
           </div>
         </div>
+        <!--Modal Input Password-->
+        <div class="modal fade" id="modalPass" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal1Label">Formulari de creació Pass</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="modal1InputLabel">Introdueix el label del camp:</label>
+                  <input type="text" class="form-control" id="modalInputLabelPass" placeholder="Label">
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="requiredPass">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Camp Obligatori
+                  </label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
+                <button type="button" class="btn btn-primary" id="guardarModalPass">Guarda</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!--Modal Input text-->
-        <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3Label" aria-hidden="true">
+        <div class="modal fade" id="modalText" tabindex="-1" role="dialog" aria-labelledby="modal3Label" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -163,21 +192,23 @@
               </div>
               <div class="modal-body">
                 <div class="form-group">
-                  <label for="modal3InputLabel">Introdueix el label del camp:</label>
-                  <input type="text" class="form-control" id="modal3InputLabel" placeholder="Label">
-                </div>
-                <div class="form-group">
-                  <label for="modal3InputLabel">Longitud minima:</label>
-                  <input type="text" class="form-control" id="modal3InputLabelMinim" placeholder="Label">
+                  <label for="modal3InputLabel">Introdueix el label del camp: Text</label>
+                  <input type="text" class="form-control" id="modalTextLabel" placeholder="Label">
                 </div>
                 <div class="form-group">
                   <label for="modal3InputLabel">Longitud màxima:</label>
-                  <input type="text" class="form-control" id="modal3InputLabelMax" placeholder="Label">
+                  <input type="text" class="form-control" id="modalTextLabelMax" placeholder="Label">
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="requiredText">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Camp Obligatori
+                  </label>
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
-                <button type="button" class="btn btn-primary" id="guardarModal3">Guarda</button>
+                <button type="button" class="btn btn-primary" id="guardarModalText">Guarda</button>
               </div>
             </div>
           </div>

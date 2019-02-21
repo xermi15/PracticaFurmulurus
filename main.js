@@ -53,12 +53,12 @@ botoEditar.addEventListener('click', editarCamps);
 
 //Guardar
 guardarM1 = document.getElementById('guardarModalEmail');
-guardarM2 = document.getElementById('guardarModal2');
-guardarM3 = document.getElementById('guardarModal3');
+guardarM2 = document.getElementById('guardarModalPass');
+guardarM3 = document.getElementById('guardarModalText');
 guardarM4 = document.getElementById('guardarModal4');
 guardarM1.addEventListener('click', guardarModalEmail);
-guardarM2.addEventListener('click', guardarModal2);
-guardarM3.addEventListener('click', guardarModal3);
+guardarM2.addEventListener('click', guardarModalPass);
+guardarM3.addEventListener('click', guardarModalText);
 guardarM4.addEventListener('click', guardarModal4);
 
 
@@ -82,33 +82,31 @@ function guardarModalEmail() {
 }
 
 //Obre el modal que et demana el label del camp
-function obrirModal2() {
-  $('#modal2').modal('show');
+function obrirModalPass() {
+  $('#modalPass').modal('show');
 }
 
 //Guarda el contingut del camp label i tanca el modal
-function guardarModal2() {
-  modal2InputLabel = document.getElementById('modal2InputLabel').value;
-  opcionsTextAreaModal2 = $('#opcionsTextAreaModal2').val().split(/\n/);
-  console.log(modal2InputLabel);
-  console.log(opcionsTextAreaModal2);
-  $('#modal2').modal('hide');
-  crearFormulari();
+function guardarModalPass() {
+  modalPass = document.getElementById('modalInputLabelPass').value;
+  requirePass = document.getElementById("requiredPass").checked;
+  //opcionsTextAreaModal2 = $('#opcionsTextAreaModal2').val().split(/\n/);
+  console.log(modalPass);
+  console.log(requirePass);
+  $('#modalPass').modal('hide');
+  crearPassword(modalPass, requirePass);
 }
-function obrirModal3() {
-  $('#modal3').modal('show');
+function obrirModalText() {
+  $('#modalText').modal('show');
 }
 
 //Guarda el contingut del camp label i tanca el modal
-function guardarModal3() {
-  modal3InputLabel = document.getElementById('modal3InputLabel').value;
-  modal3InputMinim = document.getElementById('modal3InputLabelMinim').value;
-  modal3InputMax = document.getElementById('modal3InputLabelMax').value;
-  console.log(modal3InputLabel);
-  console.log(modal3InputMinim);
-  console.log(modal3InputMax);
-  $('#modal3').modal('hide');
-  crearFormulari();
+function guardarModalText() {
+  modalTextLabel = document.getElementById('modalTextLabel').value;
+  modalTextInputMax = document.getElementById('modalTextLabelMax').value;
+  required = document.getElementById('requiredText').checked;
+  $('#modalText').modal('hide');
+  crearInputText(modalTextLabel, modalTextInputMax, required);
 }
 function obrirModal4() {
   $('#modal4').modal('show');
@@ -234,14 +232,14 @@ inFile = document.getElementById('collapseFile');
 inTextA = document.getElementById('collapseTextA');
 
 inEmail.addEventListener("click", obrirmodalEmail);
-//inPass.addEventListener("click", obrirModal1);
-inText.addEventListener("click", obrirModal3);
+inPass.addEventListener("click", obrirModalPass);
+inText.addEventListener("click", obrirModalText);
 inNum.addEventListener("click", obrirModal4);
 //inFile.addEventListener("click", obrirModal1);
 //inTextA.addEventListener("click", obrirModal1);
 
 //TO-DO: que cada vez sea un id diferente
-function crearInputText(textInput) {
+function crearInputText(label, maxlength, required) {
   var input = document.createElement("input");
   var inputLabel = document.createElement("label");
   var formInline = document.createElement("form");
@@ -250,11 +248,16 @@ function crearInputText(textInput) {
   input.setAttribute("id", "input");
   input.setAttribute("type", "text");
   input.setAttribute("class", "form-control mb-2 mr-sm-2 col-11");
+  input.setAttribute("maxlength", maxlength);
 
   //Creamos el label del campo input
   inputLabel.setAttribute("for", "input");
   inputLabel.setAttribute("class", "sr-only");
-  inputLabel.appendChild(document.createTextNode(textInput));
+  inputLabel.appendChild(document.createTextNode(label));
+  if(required == true){
+    email.setAttribute("required", "");
+  }
+
 
   //Lo anadimos todo al formgroup
   formInline.setAttribute("class", "form-inline");
@@ -262,7 +265,7 @@ function crearInputText(textInput) {
   formInline.appendChild(input);
   formInline.appendChild(basuraEliminarCamp());
 
-  return formInline;
+  insertForm(formInline);
 }
 
 //TO-DO: que cada vez sea un id diferente
@@ -393,8 +396,8 @@ insertForm(formGroup);
 
 //TO-DO: que cada vez sea un id diferente
 //TO-DO: el campo a rellenar esta bloqueado
-function crearPassword() {
-  var password = document.createElement("password");
+function crearPassword(label, required) {
+  var password = document.createElement("input");
   var passwordLabel = document.createElement("label");
   var formGroup = document.createElement("div");
 
@@ -402,17 +405,20 @@ function crearPassword() {
   password.setAttribute("id", "password");
   password.setAttribute("type", "password");
   password.setAttribute("class", "form-control");
+  if(required == true){
+    password.setAttribute("required", "");
+  }
 
   //Creamos el label
   passwordLabel.setAttribute("for", "password");
-  passwordLabel.appendChild(document.createTextNode("Password"));
+  passwordLabel.appendChild(document.createTextNode(label));
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(passwordLabel);
   formGroup.appendChild(password);
 
-  return formGroup;
+  insertForm(formGroup);
 }
 
 
@@ -424,8 +430,8 @@ function crearPassword() {
 collapseRadio = document.getElementById('collapseRadio');
 collapseCheckbox = document.getElementById('collapseCheckbox');
 
-collapseRadio.addEventListener('click', obrirModal2);
-collapseCheckbox.addEventListener('click', obrirModal2);
+//collapseRadio.addEventListener('click', obrirModal2);
+//collapseCheckbox.addEventListener('click', obrirModal2);
 
 //TO-DO: Error en la visualizacion
 //TO-DO: que cada vez sea un id diferente
@@ -497,8 +503,8 @@ function crearRadio() {
 collapseDropdown = document.getElementById('collapseDropdown');
 collapseMultiple = document.getElementById('collapseMultiple');
 
-collapseDropdown.addEventListener('click', obrirModal2);
-collapseMultiple.addEventListener('click', obrirModal2);
+//collapseDropdown.addEventListener('click', obrirModal2);
+//collapseMultiple.addEventListener('click', obrirModal2);
 
 //TO-DO: que cada vez sea un id diferente
 //TO-DO: crear cantidad variable de opciones

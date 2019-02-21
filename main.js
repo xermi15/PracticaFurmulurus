@@ -291,7 +291,12 @@ function crearInputNumero(label,minim,maxim) {
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
   formGroup.appendChild(input);
+<<<<<<< HEAD
   insertForm(formGroup);
+=======
+console.log(formGroup);
+  //return formGroup;
+>>>>>>> beba2812fcecdef3e69d92643b9859723bd0c994
 }
 
 //TO-DO: que cada vez sea un id diferente
@@ -388,7 +393,7 @@ function crearEmail(label, required) {
   formGroup.appendChild(emailLabel);
   formGroup.appendChild(email);
 
-  insertForm(formGroup);
+  return formGroup;
 }
 
 //TO-DO: que cada vez sea un id diferente
@@ -563,6 +568,7 @@ function crearSeleccionMultiple(textSelMul) {
   return formGroup;
 }
 
+<<<<<<< HEAD
 //#########################################################//
 //--------------Inserta un input a un formulari-----------//
 //#########################################################//
@@ -584,6 +590,8 @@ function insertForm(formGroup){
   }
 }
 
+=======
+>>>>>>> beba2812fcecdef3e69d92643b9859723bd0c994
 
 
 //#########################################################//

@@ -19,6 +19,7 @@ h1 {
 
 button {
   margin: .25rem;
+  margin-top: 0.5rem;
 }
 
 .card-body {
@@ -45,6 +46,7 @@ button {
 
 .formulariCreat{
   margin-top: 1%;
+  margin-bottom: 0;
 }
 
 .eliminarCamp {

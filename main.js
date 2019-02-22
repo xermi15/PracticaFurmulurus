@@ -420,6 +420,7 @@ function crearTextArea(label, maxTextA, required) {
   //Creamos el label del campo input
   taLabel.setAttribute("for", "textarea");
   taLabel.appendChild(document.createTextNode(label));
+  taLabel.appendChild(basuraEliminarCamp());
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");

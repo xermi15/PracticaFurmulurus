@@ -282,11 +282,11 @@ function crearInputText(label, maxlength, required) {
   var input = document.createElement("input");
   var inputLabel = document.createElement("label");
   var formGroup = document.createElement("div");
-
+  console.log(label);
   //Creamos el campo input
   input.setAttribute("id", "input");
   input.setAttribute("type", "text");
-  input.setAttribute("class", "form-control mb-2 mr-sm-2 col-11");
+  input.setAttribute("class", "form-control");
   input.setAttribute("maxlength", maxlength);
   if(required == true){
     input.setAttribute("required", "");
@@ -294,7 +294,7 @@ function crearInputText(label, maxlength, required) {
 
   //Creamos el label del campo input
   inputLabel.setAttribute("for", "input");
-  inputLabel.setAttribute("class", "sr-only");
+  //inputLabel.setAttribute("class", "sr-only");
   inputLabel.appendChild(document.createTextNode(label));
 
 

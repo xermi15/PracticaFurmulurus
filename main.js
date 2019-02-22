@@ -262,6 +262,8 @@ function basuraEliminarCamp() {
   iCheck.setAttribute("style", "display: none;");
   spanBasura.appendChild(iCheck);
 
+  spanBasura.addEventListener("click", fEliminarCamp);
+
   return spanBasura;
 }
 
@@ -294,7 +296,8 @@ function noEditarCamps() {
 
 //Funcio associada a la basura que elimina el camp associat
 function fEliminarCamp() {
-  this.parentNode.parentNode.parentNode.remove(this);
+  this.parentNode.parentNode.remove(this);
+  console.log("remove");
 }
 
 //#########################################################//
@@ -555,41 +558,78 @@ function crearCheck(label, opciones) {
   insertForm(formGroup);
 }
 
+// function crearRadio(label, opciones) {
+//   var formGroup = document.createElement("div");
+//
+//   var formLabel = document.createElement("div");
+//   formLabel.setAttribute("id", "formL");
+//
+//   var labelFormLabel = document.createElement("label");
+//   labelFormLabel.setAttribute("for", "formL");
+//   labelFormLabel.appendChild(document.createTextNode(label));
+//   labelFormLabel.appendChild(basuraEliminarCamp());
+//
+//   formGroup.appendChild(formLabel);
+//
+//   for (var i = 0; i < opciones.length; i++) {
+//     var formCheck = document.createElement("div");
+//     var radio = document.createElement("input");
+//     var radioLabel = document.createElement("label");
+//
+//     //Creamos el campo radio
+//     radio.setAttribute("type", "radio");
+//     radio.setAttribute("class", "form-check-input");
+//
+//     //Creamos el label
+//     radioLabel.setAttribute("for", "radio"+i);
+//     radioLabel.setAttribute("class", "fomr-check-label");
+//     radioLabel.appendChild(document.createTextNode(opciones[i]));
+//
+//     formCheck.setAttribute("class", "form-check");
+//
+//     //Lo anadimos todo al formgroup
+//     formCheck.appendChild(radio);
+//     formCheck.appendChild(radioLabel);
+//     formLabel.appendChild(formCheck);
+//   }
+//   formGroup.appendChild(formLabel);
+//   insertForm(formGroup);
+// }
+
 function crearRadio(label, opciones) {
   var formGroup = document.createElement("div");
-  formGroup.setAttribute("class", "form-group");
-
-  var custom = document.createElement("div");
-  custom.setAttribute("class", "custom-control custom-radio");
-  custom.setAttribute("id", "custom-control");
 
   var formLabel = document.createElement("label");
   formLabel.setAttribute("for", "customControl");
   formLabel.appendChild(document.createTextNode(label));
+  formLabel.appendChild(basuraEliminarCamp());
 
   formGroup.appendChild(formLabel);
 
   for (var i = 0; i < opciones.length; i++) {
-    var formRadio = document.createElement('div');
+    var custom = document.createElement("div");
     var radio = document.createElement("input");
     var radioLabel = document.createElement("label");
 
     //Creamos el campo radio
-    radio.setAttribute("id", "radio");
     radio.setAttribute("type", "radio");
+    radio.setAttribute("id", "radio"+i);
+    radio.setAttribute("name", "radio"+i);
     radio.setAttribute("class", "custom-control-input");
 
     //Creamos el label
-    radioLabel.setAttribute("for", "radio");
+    radioLabel.setAttribute("for", "radio"+i);
     radioLabel.setAttribute("class", "custom-control-label");
     radioLabel.appendChild(document.createTextNode(opciones[i]));
 
+    custom.setAttribute("class", "custom-control custom-radio");
+    // custom.setAttribute("id", "custom-control");
+
     //Lo anadimos todo al formgroup
-    formRadio.appendChild(radio);
-    formRadio.appendChild(radioLabel);
-    custom.appendChild(formRadio);
+    custom.appendChild(radio);
+    custom.appendChild(radioLabel);
+    formGroup.appendChild(custom);
   }
-  formGroup.appendChild(custom);
   insertForm(formGroup);
 }
 
@@ -615,6 +655,7 @@ function crearDropdown(label, opciones) {
   var dropdownLabel = document.createElement("label");
   dropdownLabel.setAttribute("for", "dropdown");
   dropdownLabel.appendChild(document.createTextNode(label));
+  dropdownLabel.appendChild(basuraEliminarCamp());
 
   var dropdownSelect = document.createElement("select");
   dropdownSelect.setAttribute("class", "form-control");
@@ -640,6 +681,7 @@ function crearMultiple(label, opciones) {
   var multipleLabel = document.createElement("label");
   multipleLabel.setAttribute("for", "multiple");
   multipleLabel.appendChild(document.createTextNode(label));
+  multipleLabel.appendChild(basuraEliminarCamp());
 
   var multipleSelect = document.createElement("select");
   multipleSelect.setAttribute("class", "form-control");

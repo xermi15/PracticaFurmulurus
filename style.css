@@ -45,4 +45,5 @@ button {
 
 .eliminarCamp {
   margin-left: 1em;
+  cursor: pointer;
 }

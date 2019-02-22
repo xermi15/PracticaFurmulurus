@@ -134,43 +134,44 @@ function obrirModalRadio() {
   $('#modalRadio').modal('show');
 }
 function guardarModalRadio() {
-  modalRadio = document.getElementById('modalRadioInputLabel').value;
+  label = document.getElementById('modalRadioInputLabel').value;
   modalTA = document.getElementById('opcionsTextAreaModalRadio').value;
-  splitTA = modalTA.split("\n");
-  console.log(splitTA);
-  console.log(modalRadio);
+  arrayOpciones = modalTA.split("\n");
   $('#modalRadio').modal('hide');
-  crearRadio(modalRadio);
+  crearRadio(label, arrayOpciones);
 }
 
 function obrirModalCheck() {
   $('#modalCheck').modal('show');
 }
 function guardarModalCheck() {
-  modalCheck = document.getElementById('modalCheckInputLabel').value;
-
+  label = document.getElementById('modalCheckInputLabel').value;
+  modalTA = document.getElementById('opcionsTextAreaModalCheck').value;
+  arrayOpciones = modalTA.split("\n");
   $('#modalCheck').modal('hide');
-  crearCheck(modalCheck);
+  crearCheck(label, arrayOpciones);
 }
 
 function obrirModalDropdown() {
   $('#modalDropdown').modal('show');
 }
 function guardarModalDropdown() {
-  modalDropdown = document.getElementById('modalDropdownInputLabel').value;
-
+  label = document.getElementById('modalDropdownInputLabel').value;
+  modalTA = document.getElementById('opcionsTextAreaModalDropdown').value;
+  arrayOpciones = modalTA.split("\n");
   $('#modalDropdown').modal('hide');
-  crearDropdown(modalDropdown);
+  crearDropdown(label, arrayOpciones);
 }
 
 function obrirModalMultiple() {
   $('#modalMultiple').modal('show');
 }
 function guardarModalMultiple() {
-  modalMultiple = document.getElementById('modalMultipleInputLabel').value;
-
+  label = document.getElementById('modalMultipleInputLabel').value;
+  modalTA = document.getElementById('opcionsTextAreaModalMultiple').value;
+  arrayOpciones = modalTA.split("\n");
   $('#modalMultiple').modal('hide');
-  crearMultiple(modalMultiple);
+  crearMultiple(label, arrayOpciones);
 }
 
 //#########################################################//
@@ -215,24 +216,29 @@ function crearBotoSubmit() {
 }
 
 function basuraEliminarCamp() {
-  var formCheck = document.createElement("div");
+  // var formCheck = document.createElement("div");
+  // var aCheck = document.createElement("a");
+  // var iCheck = document.createElement("i");
+  // formCheck.setAttribute("class", "form-check mb-2 mr-sm-2");
+  // //formCheck.setAttribute("style", "visibility: hidden;");
+  // iCheck.setAttribute("class", "far fa-trash-alt eliminarCamp");
+  // iCheck.setAttribute("style", "display: none;");
+  // aCheck.setAttribute("href", "#");
+  // aCheck.appendChild(iCheck);
+  // formCheck.appendChild(aCheck);
+  // formCheck.addEventListener("click", fEliminarCamp);
+  // return formCheck;
+  var spanBasura = document.createElement("span");
   var aCheck = document.createElement("a");
   var iCheck = document.createElement("i");
 
-  formCheck.setAttribute("class", "form-check mb-2 mr-sm-2");
-  //formCheck.setAttribute("style", "visibility: hidden;");
-
   iCheck.setAttribute("class", "far fa-trash-alt eliminarCamp");
   iCheck.setAttribute("style", "display: none;");
-
   aCheck.setAttribute("href", "#");
-
   aCheck.appendChild(iCheck);
-  formCheck.appendChild(aCheck);
+  spanBasura.appendChild(aCheck);
 
-  formCheck.addEventListener("click", fEliminarCamp);
-
-  return formCheck;
+  return spanBasura;
 }
 
 //Funcio associada al boto eliminar que elimina el formulari
@@ -246,10 +252,10 @@ function eliminarFormulari(idF) {
 function editarCamps() {
   var x = document.getElementsByClassName('eliminarCamp');
   for (var i = 0; i < x.length; i++) {
-    if (x[i].style.display === 'flex') {
+    if (x[i].style.display === 'inline') {
       x[i].style.display = 'none';
     } else {
-      x[i].style.display = 'flex';
+      x[i].style.display = 'inline';
     }
   }
 }
@@ -264,7 +270,7 @@ function noEditarCamps() {
 
 //Funcio associada a la basura que elimina el camp associat
 function fEliminarCamp() {
-  this.parentNode.remove(this);
+  this.parentNode.parentNode.parentNode.remove(this);
 }
 
 //#########################################################//
@@ -481,44 +487,63 @@ function crearPassword(label, required) {
 collapseRadio = document.getElementById('collapseRadio');
 collapseCheckbox = document.getElementById('collapseCheckbox');
 
-//collapseRadio.addEventListener('click', obrirModal2);
-//collapseCheckbox.addEventListener('click', obrirModal2);
+collapseRadio.addEventListener('click', obrirModalRadio);
+collapseCheckbox.addEventListener('click', obrirModalCheck);
 
-//TO-DO: Error en la visualizacion
-function crearCheck(textCheck) {
-  var check = document.createElement("input");
-  var checkLabel = document.createElement("label");
+function crearCheck(label, opciones) {
   var formGroup = document.createElement("div");
+  formGroup.setAttribute("class", "form-group");
 
-  //Creamos el campo check
-  check.setAttribute("type", "checkbox");
-  check.setAttribute("class", "custom-control-input");
+  var custom = document.createElement("div");
+  custom.setAttribute("class", "custom-control custom-checkbox");
+  custom.setAttribute("id", "custom-control");
 
-  //Creamos el label
-  checkLabel.setAttribute("for", "check");
-  checkLabel.setAttribute("class", "custom-control-label");
-  checkLabel.appendChild(document.createTextNode(textCheck));
+  var formLabel = document.createElement("label");
+  formLabel.setAttribute("for", "customControl");
+  formLabel.appendChild(document.createTextNode(label));
+  formLabel.appendChild(basuraEliminarCamp());
 
-  //Lo anadimos todo al formgroup
-  formGroup.setAttribute("class", "custom-control");
-  formGroup.setAttribute("class", "custom-checkbox");
-  formGroup.appendChild(checkLabel);
-  formGroup.appendChild(check);
+  formGroup.appendChild(formLabel);
 
-  return formGroup;
+  for (var i = 0; i < opciones.length; i++) {
+    var formCheck = document.createElement('div');
+    var check = document.createElement("input");
+    var checkLabel = document.createElement("label");
+
+    //Creamos el campo radio
+    check.setAttribute("id", "check"+i);
+    check.setAttribute("type", "checkbox");
+    check.setAttribute("class", "custom-control-input");
+
+    //Creamos el label
+    checkLabel.setAttribute("for", "check"+i);
+    checkLabel.setAttribute("class", "custom-control-label");
+    checkLabel.appendChild(document.createTextNode(opciones[i]));
+
+    //Lo anadimos todo al formgroup
+    formCheck.appendChild(check);
+    formCheck.appendChild(checkLabel);
+    custom.appendChild(formCheck);
+  }
+  formGroup.appendChild(custom);
+  insertForm(formGroup);
 }
 
-//TO-DO: Error en la visualizacion
-//TO-DO: que cada vez sea un id diferente
-//TO-DO: que cada linia pueda ser diferente
-//TO-DO: que podamos crear tantas lineas como guste
-function crearRadio() {
+function crearRadio(label, opciones) {
   var formGroup = document.createElement("div");
+  formGroup.setAttribute("class", "form-group");
 
-  formGroup.setAttribute("class", "custom-control");
-  formGroup.setAttribute("class", "custom-radio");
+  var custom = document.createElement("div");
+  custom.setAttribute("class", "custom-control custom-radio");
+  custom.setAttribute("id", "custom-control");
 
-  for (var i = 1; i < 4; i++) {
+  var formLabel = document.createElement("label");
+  formLabel.setAttribute("for", "customControl");
+  formLabel.appendChild(document.createTextNode(label));
+
+  formGroup.appendChild(formLabel);
+
+  for (var i = 0; i < opciones.length; i++) {
     var formRadio = document.createElement('div');
     var radio = document.createElement("input");
     var radioLabel = document.createElement("label");
@@ -527,20 +552,19 @@ function crearRadio() {
     radio.setAttribute("id", "radio");
     radio.setAttribute("type", "radio");
     radio.setAttribute("class", "custom-control-input");
-    //radio.setAttribute("value", i);
 
     //Creamos el label
     radioLabel.setAttribute("for", "radio");
     radioLabel.setAttribute("class", "custom-control-label");
-    radioLabel.appendChild(document.createTextNode(i));
+    radioLabel.appendChild(document.createTextNode(opciones[i]));
 
     //Lo anadimos todo al formgroup
-    formRadio.appendChild(radioLabel);
     formRadio.appendChild(radio);
-    formGroup.appendChild(formRadio);
+    formRadio.appendChild(radioLabel);
+    custom.appendChild(formRadio);
   }
-
-  return formGroup;
+  formGroup.appendChild(custom);
+  insertForm(formGroup);
 }
 
 
@@ -552,70 +576,60 @@ function crearRadio() {
 collapseDropdown = document.getElementById('collapseDropdown');
 collapseMultiple = document.getElementById('collapseMultiple');
 
-//collapseDropdown.addEventListener('click', obrirModal2);
-//collapseMultiple.addEventListener('click', obrirModal2);
+collapseDropdown.addEventListener('click', obrirModalDropdown);
+collapseMultiple.addEventListener('click', obrirModalMultiple);
 
 //TO-DO: que cada vez sea un id diferente
 //TO-DO: crear cantidad variable de opciones
 //TO-DO: texto personalizado para las opciones
-function crearDropdown(textDropdown) {
-  var dd = document.createElement("select");
-  var ddLabel = document.createElement("label");
+function crearDropdown(label, opciones) {
   var formGroup = document.createElement("div");
-
-  //Creamos el campo input
-  dd.setAttribute("id", "dropdown");
-  dd.setAttribute("type", "select");
-  dd.setAttribute("class", "form-control");
-
-  for (var i = 1; i < 6; i++) {
-    var opt = document.createElement("option");
-    opt.appendChild(document.createTextNode(i));
-    //opt.setAttribute("value", i);
-    dd.appendChild(opt);
-  }
-
-  //Creamos el label del campo input
-  ddLabel.setAttribute("for", "dropdown");
-  ddLabel.appendChild(document.createTextNode(textDropdown));
-
-  //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
-  formGroup.appendChild(ddLabel);
-  formGroup.appendChild(dd);
 
-  return formGroup;
+  var dropdownLabel = document.createElement("label");
+  dropdownLabel.setAttribute("for", "dropdown");
+  dropdownLabel.appendChild(document.createTextNode(label));
+
+  var dropdownSelect = document.createElement("select");
+  dropdownSelect.setAttribute("class", "form-control");
+  dropdownSelect.setAttribute("for", "dropdown");
+  
+  for (var i = 0; i < opciones.length; i++) {
+    var option = document.createElement('option');
+    option.appendChild(document.createTextNode(opciones[i]));
+
+    //Lo anadimos todo al formgroup
+    dropdownSelect.appendChild(option);
+  }
+  formGroup.appendChild(dropdownLabel);
+  formGroup.appendChild(dropdownSelect);
+  insertForm(formGroup);
 }
 
 //TO-DO: texto personalizado para las opciones
-function crearSeleccionMultiple(textSelMul) {
-  var sm = document.createElement("select");
-  var smLabel = document.createElement("label");
+function crearMultiple(label, opciones) {
   var formGroup = document.createElement("div");
-
-  //Creamos el campo input
-  sm.setAttribute("id", "seleccionMultiple");
-  sm.setAttribute("type", "select");
-  sm.setAttribute("class", "form-control");
-  sm.multiple = true;
-
-  for (var i = 1; i < 6; i++) {
-    var opt = document.createElement("option");
-    opt.appendChild(document.createTextNode(i));
-    //opt.setAttribute("value", i);
-    sm.appendChild(opt);
-  }
-
-  //Creamos el label del campo input
-  smLabel.setAttribute("for", "seleccionMultiple");
-  smLabel.appendChild(document.createTextNode(textSelMul));
-
-  //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
-  formGroup.appendChild(smLabel);
-  formGroup.appendChild(sm);
 
-  return formGroup;
+  var multipleLabel = document.createElement("label");
+  multipleLabel.setAttribute("for", "multiple");
+  multipleLabel.appendChild(document.createTextNode(label));
+
+  var multipleSelect = document.createElement("select");
+  multipleSelect.setAttribute("class", "form-control");
+  multipleSelect.setAttribute("for", "multiple");
+  multipleSelect.setAttribute("multiple", "");
+  
+  for (var i = 0; i < opciones.length; i++) {
+    var option = document.createElement('option');
+    option.appendChild(document.createTextNode(opciones[i]));
+
+    //Lo anadimos todo al formgroup
+    multipleSelect.appendChild(option);
+  }
+  formGroup.appendChild(multipleLabel);
+  formGroup.appendChild(multipleSelect);
+  insertForm(formGroup);
 }
 
 

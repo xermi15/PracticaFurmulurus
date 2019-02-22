@@ -216,27 +216,13 @@ function crearBotoSubmit() {
 }
 
 function basuraEliminarCamp() {
-  // var formCheck = document.createElement("div");
-  // var aCheck = document.createElement("a");
-  // var iCheck = document.createElement("i");
-  // formCheck.setAttribute("class", "form-check mb-2 mr-sm-2");
-  // //formCheck.setAttribute("style", "visibility: hidden;");
-  // iCheck.setAttribute("class", "far fa-trash-alt eliminarCamp");
-  // iCheck.setAttribute("style", "display: none;");
-  // aCheck.setAttribute("href", "#");
-  // aCheck.appendChild(iCheck);
-  // formCheck.appendChild(aCheck);
-  // formCheck.addEventListener("click", fEliminarCamp);
-  // return formCheck;
+
   var spanBasura = document.createElement("span");
-  var aCheck = document.createElement("a");
   var iCheck = document.createElement("i");
 
   iCheck.setAttribute("class", "far fa-trash-alt eliminarCamp");
   iCheck.setAttribute("style", "display: none;");
-  aCheck.setAttribute("href", "#");
-  aCheck.appendChild(iCheck);
-  spanBasura.appendChild(aCheck);
+  spanBasura.appendChild(iCheck);
 
   return spanBasura;
 }
@@ -284,7 +270,7 @@ inNum = document.getElementById('collapseNum');
 inFile = document.getElementById('collapseFile');
 inTextA = document.getElementById('collapseTextA');
 
-//inEmail.addEventListener("click", obrirmodalEmail);
+inEmail.addEventListener("click", obrirModalEmail);
 inPass.addEventListener("click", obrirModalPass);
 inText.addEventListener("click", obrirModalText);
 inNum.addEventListener("click", obrirModal4);
@@ -593,7 +579,7 @@ function crearDropdown(label, opciones) {
   var dropdownSelect = document.createElement("select");
   dropdownSelect.setAttribute("class", "form-control");
   dropdownSelect.setAttribute("for", "dropdown");
-  
+
   for (var i = 0; i < opciones.length; i++) {
     var option = document.createElement('option');
     option.appendChild(document.createTextNode(opciones[i]));
@@ -619,7 +605,7 @@ function crearMultiple(label, opciones) {
   multipleSelect.setAttribute("class", "form-control");
   multipleSelect.setAttribute("for", "multiple");
   multipleSelect.setAttribute("multiple", "");
-  
+
   for (var i = 0; i < opciones.length; i++) {
     var option = document.createElement('option');
     option.appendChild(document.createTextNode(opciones[i]));

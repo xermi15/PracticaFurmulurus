@@ -56,11 +56,15 @@ guardarM1 = document.getElementById('guardarModalEmail');
 guardarM2 = document.getElementById('guardarModalPass');
 guardarM3 = document.getElementById('guardarModalText');
 guardarM4 = document.getElementById('guardarModal4');
+guardarM5 = document.getElementById('guardarModalFile');
+guardarM6 = document.getElementById('guardarModalTextA');
 
 guardarM1.addEventListener('click', guardarModalEmail);
 guardarM2.addEventListener('click', guardarModalPass);
 guardarM3.addEventListener('click', guardarModalText);
 guardarM4.addEventListener('click', guardarModal4);
+guardarM5.addEventListener('click', guardarModalFile);
+guardarM6.addEventListener('click', guardarModalTextA);
 
 guardarMRadio = document.getElementById('guardarModalRadio');
 guardarMCheck = document.getElementById('guardarModalCheck');
@@ -129,6 +133,40 @@ function guardarModal4() {
   $('#modal4').modal('hide');
   crearInputNumero(modal4InputLabel,modal4NumMini,modal4NumMaxi);
 }
+
+function obrirModalFile() {
+  $('#modalFile').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModalFile() {
+  modalFile = document.getElementById('modalInputLabelFile').value;
+  requireFile = document.getElementById("requiredFile").checked;
+  //opcionsTextAreaModal2 = $('#opcionsTextAreaModal2').val().split(/\n/);
+
+  $('#modalFile').modal('hide');
+
+  crearInputFile(modalFile, requireFile);
+}
+
+function obrirModalTextA() {
+  $('#modalTextA').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModalTextA() {
+  modalTextA = document.getElementById('modalInputLabelTextA').value;
+  maxTextA = document.getElementById('modalTextALabelMax').value;
+  requireTextA = document.getElementById("requiredTextA").checked;
+  //opcionsTextAreaModal2 = $('#opcionsTextAreaModal2').val().split(/\n/);
+  console.log(modalTextA);
+  console.log(requireTextA);
+  console.log(maxTextA);
+  $('#modalTextA').modal('hide');
+
+  crearTextArea(modalTextA, maxTextA, requireTextA);
+}
+
 
 function obrirModalRadio() {
   $('#modalRadio').modal('show');
@@ -277,19 +315,19 @@ inEmail.addEventListener("click", obrirModalEmail);
 inPass.addEventListener("click", obrirModalPass);
 inText.addEventListener("click", obrirModalText);
 inNum.addEventListener("click", obrirModal4);
-//inFile.addEventListener("click", obrirModal1);
-//inTextA.addEventListener("click", obrirModal1);
+inFile.addEventListener("click", obrirModalFile);
+inTextA.addEventListener("click", obrirModalTextA);
 
 //TO-DO: que cada vez sea un id diferente
 function crearInputText(label, maxlength, required) {
   var input = document.createElement("input");
   var inputLabel = document.createElement("label");
   var formGroup = document.createElement("div");
-
+  console.log(label);
   //Creamos el campo input
   input.setAttribute("id", "input");
   input.setAttribute("type", "text");
-  input.setAttribute("class", "form-control mb-2 mr-sm-2 col-11");
+  input.setAttribute("class", "form-control");
   input.setAttribute("maxlength", maxlength);
   if(required == true){
     input.setAttribute("required", "");
@@ -297,7 +335,7 @@ function crearInputText(label, maxlength, required) {
 
   //Creamos el label del campo input
   inputLabel.setAttribute("for", "input");
-  inputLabel.setAttribute("class", "sr-only");
+  //inputLabel.setAttribute("class", "sr-only");
   inputLabel.appendChild(document.createTextNode(label));
 
 
@@ -368,7 +406,7 @@ function crearInputData(textInput) {
 
 //TO-DO: que cada vez sea un id diferente
 //TO-DO: altura variable (rows)
-function crearTextArea(textInput) {
+function crearTextArea(label, maxTextA, required) {
   var ta = document.createElement("textarea");
   var taLabel = document.createElement("label");
   var formGroup = document.createElement("div");
@@ -377,21 +415,22 @@ function crearTextArea(textInput) {
   ta.setAttribute("id", "textarea");
   ta.setAttribute("rows", "3");
   ta.setAttribute("class", "form-control");
+  ta.setAttribute("maxlength", maxTextA);
 
   //Creamos el label del campo input
   taLabel.setAttribute("for", "textarea");
-  taLabel.appendChild(document.createTextNode(textInput));
+  taLabel.appendChild(document.createTextNode(label));
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(taLabel);
   formGroup.appendChild(ta);
 
-  return formGroup;
+  insertForm(formGroup);
 }
 
 //TO-DO: que cada vez sea un id diferente
-function crearInputFile(textInput) {
+function crearInputFile(label , required) {
   var fi = document.createElement("input");
   var fiLabel = document.createElement("label");
   var formGroup = document.createElement("div");
@@ -403,14 +442,14 @@ function crearInputFile(textInput) {
 
   //Creamos el label del campo input
   fiLabel.setAttribute("for", "fileInput");
-  fiLabel.appendChild(document.createTextNode(textInput));
+  fiLabel.appendChild(document.createTextNode(label));
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(fiLabel);
   formGroup.appendChild(fi);
 
-  return formGroup;
+  insertForm(formGroup);
 }
 
 //TO-DO: que cada vez sea un id diferente

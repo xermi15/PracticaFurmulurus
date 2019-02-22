@@ -21,6 +21,10 @@ button {
   margin: .25rem;
 }
 
+.card-body {
+  padding: 0.5rem;
+}
+
 .panelControl {
   text-align: center;
   border: none;

@@ -557,43 +557,6 @@ function crearCheck(label, opciones) {
   insertForm(formGroup);
 }
 
-// function crearRadio(label, opciones) {
-//   var formGroup = document.createElement("div");
-//
-//   var formLabel = document.createElement("div");
-//   formLabel.setAttribute("id", "formL");
-//
-//   var labelFormLabel = document.createElement("label");
-//   labelFormLabel.setAttribute("for", "formL");
-//   labelFormLabel.appendChild(document.createTextNode(label));
-//   labelFormLabel.appendChild(basuraEliminarCamp());
-//
-//   formGroup.appendChild(formLabel);
-//
-//   for (var i = 0; i < opciones.length; i++) {
-//     var formCheck = document.createElement("div");
-//     var radio = document.createElement("input");
-//     var radioLabel = document.createElement("label");
-//
-//     //Creamos el campo radio
-//     radio.setAttribute("type", "radio");
-//     radio.setAttribute("class", "form-check-input");
-//
-//     //Creamos el label
-//     radioLabel.setAttribute("for", "radio"+i);
-//     radioLabel.setAttribute("class", "fomr-check-label");
-//     radioLabel.appendChild(document.createTextNode(opciones[i]));
-//
-//     formCheck.setAttribute("class", "form-check");
-//
-//     //Lo anadimos todo al formgroup
-//     formCheck.appendChild(radio);
-//     formCheck.appendChild(radioLabel);
-//     formLabel.appendChild(formCheck);
-//   }
-//   formGroup.appendChild(formLabel);
-//   insertForm(formGroup);
-// }
 
 function crearRadio(label, opciones) {
   var formGroup = document.createElement("div");
@@ -613,7 +576,7 @@ function crearRadio(label, opciones) {
     //Creamos el campo radio
     radio.setAttribute("type", "radio");
     radio.setAttribute("id", "radio"+i);
-    radio.setAttribute("name", "radio"+i);
+    radio.setAttribute("name", "radio");
     radio.setAttribute("class", "custom-control-input");
 
     //Creamos el label

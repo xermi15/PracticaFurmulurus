@@ -13,7 +13,7 @@ function crearFormulari() {
   formulari.setAttribute("id", inputCrear.value);
   formulari.setAttribute("class", "formulariCreat");
 
-  cardBody.setAttribute("class", "card card-body formulariCreat");
+  cardBody.setAttribute("class", "card card-body formulariCreat col-5");
   /*Estructura del formulari*/
   titolForm.appendChild(textTitol);
   formulari.appendChild(titolForm);

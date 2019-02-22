@@ -278,7 +278,7 @@ inNum = document.getElementById('collapseNum');
 inFile = document.getElementById('collapseFile');
 inTextA = document.getElementById('collapseTextA');
 
-//inEmail.addEventListener("click", obrirmodalEmail);
+inEmail.addEventListener("click", obrirmodalEmail);
 inPass.addEventListener("click", obrirModalPass);
 inText.addEventListener("click", obrirModalText);
 inNum.addEventListener("click", obrirModal4);

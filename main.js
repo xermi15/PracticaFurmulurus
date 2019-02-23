@@ -13,7 +13,7 @@ function crearFormulari() {
   formulari.setAttribute("id", inputCrear.value);
   formulari.setAttribute("class", "formulariCreat");
 
-  cardBody.setAttribute("class", "card card-body formulariCreat");
+  cardBody.setAttribute("class", "card card-body formulariCreat col-5");
   /*Estructura del formulari*/
   titolForm.appendChild(textTitol);
   formulari.appendChild(titolForm);
@@ -51,6 +51,9 @@ botoEditar = document.getElementById('botoEditar');
 botoCrear.addEventListener('click', crearFormulari);
 botoEditar.addEventListener('click', editarCamps);
 
+var idEditarCamp;
+var idAntic;
+
 //Guardar info modales
 guardarM1 = document.getElementById('guardarModalEmail');
 guardarM2 = document.getElementById('guardarModalPass');
@@ -72,10 +75,12 @@ guardarMRadio = document.getElementById('guardarModalRadio');
 guardarMCheck = document.getElementById('guardarModalCheck');
 guardarMDropdown = document.getElementById('guardarModalDropdown');
 guardarMMultiple = document.getElementById('guardarModalMultiple');
+guardarMEditar = document.getElementById('guardarModalEditar');
 guardarMRadio.addEventListener('click', guardarModalRadio);
 guardarMCheck.addEventListener('click', guardarModalCheck);
 guardarMDropdown.addEventListener('click', guardarModalDropdown);
 guardarMMultiple.addEventListener('click', guardarModalMultiple);
+guardarMEditar.addEventListener('click', guardarModalEditar);
 
 
 
@@ -230,6 +235,19 @@ function guardarModalMultiple() {
   crearMultiple(label, arrayOpciones);
 }
 
+function obrirModalEditar() {
+  $('#modalEditar').modal('show');
+  idAntic = event.target.id;
+  event.target.id = "aiaiai";
+  idEditarCamp = event.target.id;
+}
+function guardarModalEditar() {
+  label = document.getElementById('modalEditarInputLabel').value;
+  document.getElementById(idEditarCamp).innerHTML = label;
+  document.getElementById(idEditarCamp).id = idAntic;
+  $('#modalEditar').modal('hide');
+}
+
 //#########################################################//
 //-------------------------Botones-------------------------//
 //#########################################################//
@@ -363,6 +381,7 @@ function crearInputText(label, maxlength, required) {
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
+  inputLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(input);
   //formInline.appendChild(inputLabel);
   //formInline.appendChild(input);
@@ -397,6 +416,7 @@ function crearInputNumero(label,minim,maxim) {
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
+  inputLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(input);
 
   insertForm(formGroup);
@@ -427,6 +447,7 @@ function crearInputData(label, minDate, maxDate, required) {
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
+  inputLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(input);
   //console.log(formGroup);
   insertForm(formGroup);
@@ -453,6 +474,7 @@ function crearTextArea(label, maxTextA, required) {
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(taLabel);
+  taLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(ta);
 
   insertForm(formGroup);
@@ -477,6 +499,7 @@ function crearInputFile(label , required) {
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(fiLabel);
+  fiLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(fi);
 
   insertForm(formGroup);
@@ -505,6 +528,7 @@ function crearEmail(label, required) {
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(emailLabel);
+  emailLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(email);
 
   insertForm(formGroup);
@@ -533,6 +557,7 @@ function crearPassword(label, required) {
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(passwordLabel);
+  passwordLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(password);
 
   insertForm(formGroup);
@@ -564,6 +589,7 @@ function crearCheck(label, opciones) {
   formLabel.appendChild(basuraEliminarCamp());
 
   formGroup.appendChild(formLabel);
+  formLabel.addEventListener("dblclick", obrirModalEditar);
 
   for (var i = 0; i < opciones.length; i++) {
     var formCheck = document.createElement('div');
@@ -583,49 +609,14 @@ function crearCheck(label, opciones) {
     //Lo anadimos todo al formgroup
     formCheck.appendChild(check);
     formCheck.appendChild(checkLabel);
+    checkLabel.addEventListener("dblclick", obrirModalEditar);
     custom.appendChild(formCheck);
   }
+
   formGroup.appendChild(custom);
   insertForm(formGroup);
 }
 
-// function crearRadio(label, opciones) {
-//   var formGroup = document.createElement("div");
-//
-//   var formLabel = document.createElement("div");
-//   formLabel.setAttribute("id", "formL");
-//
-//   var labelFormLabel = document.createElement("label");
-//   labelFormLabel.setAttribute("for", "formL");
-//   labelFormLabel.appendChild(document.createTextNode(label));
-//   labelFormLabel.appendChild(basuraEliminarCamp());
-//
-//   formGroup.appendChild(formLabel);
-//
-//   for (var i = 0; i < opciones.length; i++) {
-//     var formCheck = document.createElement("div");
-//     var radio = document.createElement("input");
-//     var radioLabel = document.createElement("label");
-//
-//     //Creamos el campo radio
-//     radio.setAttribute("type", "radio");
-//     radio.setAttribute("class", "form-check-input");
-//
-//     //Creamos el label
-//     radioLabel.setAttribute("for", "radio"+i);
-//     radioLabel.setAttribute("class", "fomr-check-label");
-//     radioLabel.appendChild(document.createTextNode(opciones[i]));
-//
-//     formCheck.setAttribute("class", "form-check");
-//
-//     //Lo anadimos todo al formgroup
-//     formCheck.appendChild(radio);
-//     formCheck.appendChild(radioLabel);
-//     formLabel.appendChild(formCheck);
-//   }
-//   formGroup.appendChild(formLabel);
-//   insertForm(formGroup);
-// }
 
 function crearRadio(label, opciones) {
   var formGroup = document.createElement("div");
@@ -636,6 +627,7 @@ function crearRadio(label, opciones) {
   formLabel.appendChild(basuraEliminarCamp());
 
   formGroup.appendChild(formLabel);
+  formLabel.addEventListener("dblclick", obrirModalEditar);
 
   for (var i = 0; i < opciones.length; i++) {
     var custom = document.createElement("div");
@@ -645,7 +637,7 @@ function crearRadio(label, opciones) {
     //Creamos el campo radio
     radio.setAttribute("type", "radio");
     radio.setAttribute("id", "radio"+i);
-    radio.setAttribute("name", "radio"+i);
+    radio.setAttribute("name", "radio");
     radio.setAttribute("class", "custom-control-input");
 
     //Creamos el label
@@ -659,6 +651,7 @@ function crearRadio(label, opciones) {
     //Lo anadimos todo al formgroup
     custom.appendChild(radio);
     custom.appendChild(radioLabel);
+    radioLabel.addEventListener("dblclick", obrirModalEditar);
     formGroup.appendChild(custom);
   }
   insertForm(formGroup);
@@ -700,6 +693,7 @@ function crearDropdown(label, opciones) {
     dropdownSelect.appendChild(option);
   }
   formGroup.appendChild(dropdownLabel);
+  dropdownLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(dropdownSelect);
   insertForm(formGroup);
 }
@@ -727,6 +721,7 @@ function crearMultiple(label, opciones) {
     multipleSelect.appendChild(option);
   }
   formGroup.appendChild(multipleLabel);
+  multipleLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(multipleSelect);
   insertForm(formGroup);
 }

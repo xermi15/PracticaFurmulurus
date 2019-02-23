@@ -1,7 +1,6 @@
 .container {
   margin: 1%;
   padding: 1%;
-
 }
 
 h1 {
@@ -9,13 +8,6 @@ h1 {
   font-family: 'ZCOOL KuaiLe', cursive !important;
   text-align: center;
 }
-
-/*form {
-  margin: 2%;
-  padding: 1%;
-  border: 1px solid black;
-  text-align: left;
-}*/
 
 button {
   margin: .25rem;
@@ -31,12 +23,20 @@ button {
   border: none;
 }
 
+.titolPanelControl {
+  padding: 0;
+}
+
 #panelControl {
   position: fixed;
-  top: 12rem;
-  right: 1rem;
+  padding: 2em;
+  left: 550px;
+  top: 208px;
+  width: 588px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-/*TO-DO: colors i efectes del link*/
+
 .titolPanelControl {
   align-self: self-start;
 }
@@ -46,7 +46,7 @@ button {
 }
 
 .afegirCampLink:hover {
-    background: #28a74596;
+  background: #28a74596;
 }
 
 .formulariCreat{
@@ -57,4 +57,8 @@ button {
 .eliminarCamp {
   margin-left: 1em;
   cursor: pointer;
+}
+
+.form-group {
+  margin: 0;
 }

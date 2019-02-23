@@ -87,6 +87,12 @@
                     <input type="textarea" class="form-control" id="inputTextA" placeholder="Introdueix un area de text" readonly>
                   </div>
                 </div>
+                <div class="card card-body afegirCampLink" id="collapseDate">
+                  <div class="form-group">
+                    <label for="inputTextA">Date</label>
+                    <input type="date" class="form-control" id="inputDate" placeholder="Introdueix una data" readonly>
+                  </div>
+                </div>
               </div>
               <div class="tab-pane fade" id="nav-dropdown" role="tabpanel" aria-labelledby="nav-dropdown-tab">
                 <!-- Dropdown -->
@@ -305,6 +311,44 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
                 <button type="button" class="btn btn-primary" id="guardarModalTextA">Guarda</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Modal Input Date-->
+        <div class="modal fade" id="modalDate" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal1Label">Formulari de creació Date</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="modal1InputLabel">Introdueix el label del camp:</label>
+                  <input type="text" class="form-control" id="modalInputLabelDate" placeholder="Label">
+                </div>
+                <div class="form-group">
+                  <label for="modal3InputLabel">Data mínima:</label>
+                  <input type="text" class="form-control" id="modalDateMin" placeholder="2019-02-09">
+                </div>
+                <div class="form-group">
+                  <label for="modal3InputLabel">Data màxima:</label>
+                  <input type="text" class="form-control" id="modalDateMax" placeholder="2019-03-09">
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="requiredDate">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Camp Obligatori
+                  </label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
+                <button type="button" class="btn btn-primary" id="guardarModalDate">Guarda</button>
               </div>
             </div>
           </div>

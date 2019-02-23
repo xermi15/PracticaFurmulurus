@@ -61,6 +61,7 @@ guardarM3 = document.getElementById('guardarModalText');
 guardarM4 = document.getElementById('guardarModal4');
 guardarM5 = document.getElementById('guardarModalFile');
 guardarM6 = document.getElementById('guardarModalTextA');
+guardarM7 = document.getElementById('guardarModalDate');
 
 guardarM1.addEventListener('click', guardarModalEmail);
 guardarM2.addEventListener('click', guardarModalPass);
@@ -68,6 +69,7 @@ guardarM3.addEventListener('click', guardarModalText);
 guardarM4.addEventListener('click', guardarModal4);
 guardarM5.addEventListener('click', guardarModalFile);
 guardarM6.addEventListener('click', guardarModalTextA);
+guardarM7.addEventListener('click', guardarModalDate);
 
 guardarMRadio = document.getElementById('guardarModalRadio');
 guardarMCheck = document.getElementById('guardarModalCheck');
@@ -172,6 +174,22 @@ function guardarModalTextA() {
   crearTextArea(modalTextA, maxTextA, requireTextA);
 }
 
+function obrirModalDate() {
+  $('#modalDate').modal('show');
+}
+
+//Guarda el contingut del camp label i tanca el modal
+function guardarModalDate() {
+  modalDate = document.getElementById('modalInputLabelDate').value;
+  minDate = document.getElementById('modalDateMin').value;
+  maxDate = document.getElementById('modalDateMax').value;
+  requireDate = document.getElementById("requiredDate").checked;
+  //opcionsTextAreaModal2 = $('#opcionsTextAreaModal2').val().split(/\n/);
+
+  $('#modalDate').modal('hide');
+
+  crearInputData(modalDate, minDate, maxDate, requireDate);
+}
 
 function obrirModalRadio() {
   $('#modalRadio').modal('show');
@@ -328,6 +346,7 @@ inText = document.getElementById('collapseText');
 inNum = document.getElementById('collapseNum');
 inFile = document.getElementById('collapseFile');
 inTextA = document.getElementById('collapseTextA');
+inDate = document.getElementById('collapseDate');
 
 inEmail.addEventListener("click", obrirModalEmail);
 inPass.addEventListener("click", obrirModalPass);
@@ -335,6 +354,7 @@ inText.addEventListener("click", obrirModalText);
 inNum.addEventListener("click", obrirModal4);
 inFile.addEventListener("click", obrirModalFile);
 inTextA.addEventListener("click", obrirModalTextA);
+inDate.addEventListener("click", obrirModalDate);
 
 //TO-DO: que cada vez sea un id diferente
 function crearInputText(label, maxlength, required) {
@@ -355,6 +375,7 @@ function crearInputText(label, maxlength, required) {
   inputLabel.setAttribute("for", "input");
   //inputLabel.setAttribute("class", "sr-only");
   inputLabel.appendChild(document.createTextNode(label));
+  inputLabel.appendChild(basuraEliminarCamp());
 
 
   //Lo anadimos todo al formgroup
@@ -390,6 +411,7 @@ function crearInputNumero(label,minim,maxim) {
   //Creamos el label del campo input
   inputLabel.setAttribute("for", "input");
   inputLabel.appendChild(document.createTextNode(label));
+  inputLabel.appendChild(basuraEliminarCamp());
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
@@ -402,7 +424,7 @@ function crearInputNumero(label,minim,maxim) {
 }
 
 //TO-DO: que cada vez sea un id diferente
-function crearInputData(textInput) {
+function crearInputData(label, minDate, maxDate, required) {
   var input = document.createElement("input");
   var inputLabel = document.createElement("label");
   var formGroup = document.createElement("div");
@@ -411,18 +433,24 @@ function crearInputData(textInput) {
   input.setAttribute("id", "input");
   input.setAttribute("type", "date");
   input.setAttribute("class", "form-control");
+  input.setAttribute("min", minDate);
+  input.setAttribute("max", maxDate);
+  if(required == true){
+    input.setAttribute("required", "");
+  }
 
   //Creamos el label del campo input
   inputLabel.setAttribute("for", "input");
-  inputLabel.appendChild(document.createTextNode(textInput));
+  inputLabel.appendChild(document.createTextNode(label));
+  inputLabel.appendChild(basuraEliminarCamp());
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
   formGroup.appendChild(inputLabel);
   inputLabel.addEventListener("dblclick", obrirModalEditar);
   formGroup.appendChild(input);
-
-  return formGroup;
+  //console.log(formGroup);
+  insertForm(formGroup);
 }
 
 //TO-DO: que cada vez sea un id diferente
@@ -466,6 +494,7 @@ function crearInputFile(label , required) {
   //Creamos el label del campo input
   fiLabel.setAttribute("for", "fileInput");
   fiLabel.appendChild(document.createTextNode(label));
+  fiLabel.appendChild(basuraEliminarCamp());
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
@@ -493,7 +522,8 @@ function crearEmail(label, required) {
 
   //Creamos el label
   emailLabel.setAttribute("for", "email");
-  emailLabel.appendChild(document.createTextNode("Email"));
+  emailLabel.appendChild(document.createTextNode(label));
+  emailLabel.appendChild(basuraEliminarCamp());
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");
@@ -522,6 +552,7 @@ function crearPassword(label, required) {
   //Creamos el label
   passwordLabel.setAttribute("for", "password");
   passwordLabel.appendChild(document.createTextNode(label));
+  passwordLabel.appendChild(basuraEliminarCamp());
 
   //Lo anadimos todo al formgroup
   formGroup.setAttribute("class", "form-group");

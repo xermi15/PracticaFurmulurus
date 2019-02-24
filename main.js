@@ -39,6 +39,7 @@ function crearFormulari() {
 
   //fem visible el boto editar
   document.getElementById("botoEditar").style.visibility = "visible";
+  document.getElementById("panelControl").style.visibility = "visible";
   // console.log(botoCrear.outerHTML);
   // document.getElementById("botoCrear").outerHTML = '<button type="button" class="btn btn-secondary" id="botoCrear">Crea</button>';
   // console.log(botoCrear.outerHTML);

@@ -1,7 +1,6 @@
 function crearFormulari() {
 
   //mostrem el panell de controls
-  document.getElementById("panelControl").style.visibility = "visible";
 
   /*creació formulari*/
   var container = document.getElementsByTagName("div")[0];
@@ -38,8 +37,14 @@ function crearFormulari() {
   cardBody.appendChild(formulari);
   container.appendChild(cardBody);
 
+  //fem visible el boto editar
   document.getElementById("botoEditar").style.visibility = "visible";
+  document.getElementById("panelControl").style.visibility = "visible";
+  // console.log(botoCrear.outerHTML);
+  // document.getElementById("botoCrear").outerHTML = '<button type="button" class="btn btn-secondary" id="botoCrear">Crea</button>';
+  // console.log(botoCrear.outerHTML);
 
+  //cada cop que es crea un formulari, desapareixen les escombraries
   noEditarCamps();
 }
 
@@ -208,9 +213,10 @@ function obrirModalCheck() {
 function guardarModalCheck() {
   label = document.getElementById('modalCheckInputLabel').value;
   modalTA = document.getElementById('opcionsTextAreaModalCheck').value;
+  requireCheck = document.getElementById("requiredCheck").checked;
   arrayOpciones = modalTA.split("\n");
   $('#modalCheck').modal('hide');
-  crearCheck(label, arrayOpciones);
+  crearCheck(label, arrayOpciones, requireCheck);
 }
 
 function obrirModalDropdown() {
@@ -575,7 +581,7 @@ collapseCheckbox = document.getElementById('collapseCheckbox');
 collapseRadio.addEventListener('click', obrirModalRadio);
 collapseCheckbox.addEventListener('click', obrirModalCheck);
 
-function crearCheck(label, opciones) {
+function crearCheck(label, opciones, required) {
   var formGroup = document.createElement("div");
   formGroup.setAttribute("class", "form-group");
 
@@ -600,6 +606,9 @@ function crearCheck(label, opciones) {
     check.setAttribute("id", "check"+i);
     check.setAttribute("type", "checkbox");
     check.setAttribute("class", "custom-control-input");
+    if(required == true){
+      check.setAttribute("required", "");
+    }
 
     //Creamos el label
     checkLabel.setAttribute("for", "check"+i);
